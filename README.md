@@ -360,14 +360,14 @@ As you can see, there is a `videos` field in the returned result, which mainly c
 
 ## More
 
-For more info, please check below APIs and integration documents
+For more info, please check below APIs and integration documents.
 
-| API | Path | Integration Document |
+| API | Path | Integration Guidance |
 | ---- | ---- | ------------ |
 | [Google SERP API](http://platform.acedata.cloud/documents/44c86226-8eaa-49bf-85f3-1fae8d2e23f1) | `/serp/google` | [Google SERP API Integration Guide](http://platform.acedata.cloud/documents/cc2ce913-df8f-4d22-a051-93fa33b2e51b) |
 
 Base URL: [https://api.acedata.cloud](https://api.acedata.cloud)
 
-## Support 
+## Support
 
 If you meet any issue, check our from [support info](https://platform.acedata.cloud/support).
