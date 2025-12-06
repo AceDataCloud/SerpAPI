@@ -2,7 +2,7 @@
 
 Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, ads, featured snippets, knowledge graphs, as well as various content such as images and videos, aiming to provide users with the most relevant information.
 
-This article will provide a detailed introduction to the Google SERP API, which can provide results for queries entered in the Google search engine. The content of the results includes many types, such as featured snippets, knowledge graphs, and images.
+This article will provide a detailed introduction to the Google SERP API, which can provide results for queries entered in the Google search engine. The content of the results also includes many types, such as featured snippets, knowledge graphs, and images.
 
 This document will introduce the integration instructions for the Google SERP API.
 
@@ -29,21 +29,21 @@ Here, we can see that we have set the Request Headers, including:
 - `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
 - `authorization`: the key to call the API, which can be selected directly after applying.
 
-Additionally, we set the Request Body, including:
+Additionally, we have set the Request Body, including:
 
 - `type`: the type of search resource, currently supporting only six types, with the default being `search`.
 - `query`: the search keyword.
 - `country`: the country where the search results are located, with the default being the United States (US).
 - `language`: the language of the search results, with the default being English (en).
-- `range`: the time range for the search results, with no restrictions by default.
-- `number`: the page size for the search results, with the default being 10.
-- `page`: the page number for the search results, with the default being 1.
+- `range`: the time range for the search results, with the default being unlimited.
+- `number`: the page size of the search results, with the default being 10.
+- `page`: the page number of the search results, with the default being 1.
 
 After making the selections, you can find that the corresponding code is also generated on the right side, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/1j81zr.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to conduct a test, as shown in the image above, and we obtained the following results:
+Click the "Try" button to conduct a test, as shown in the image above, and we have obtained the following results:
 ```json
 {
   "knowledge_graph": {
@@ -222,7 +222,7 @@ print(response.text)
 
 ## Custom Search Type
 
-If you customize the type of search resource, we can modify the parameter `type`, which includes ordinary resources `search`, image resources `images`, news resources `news`, map resources `maps`, regional resources `places`, video resources `videos`. This article will demonstrate with the video resource `videos`.
+If you customize the type of search resource, we can modify the parameter `type`, which includes ordinary resources `search`, image resources `images`, news resources `news`, map resources `maps`, regional resources `places`, and video resources `videos`. This article will demonstrate using the video resource `videos`.
 
 Now let's demonstrate the specific operation.
 
@@ -344,9 +344,9 @@ You can get the following response:
 }
 ```
 
-The response contains multiple fields, described as follows:
+The returned result contains multiple fields, described as follows:
 
-- `news`, a list of video information from the search results.
+- `news`, the list of video information in the search results.
 
 As you can see, there is a `videos` field in the returned result, which mainly contains the results of the search keywords.
 
@@ -789,7 +789,7 @@ As we can see, we successfully obtained the search results from the past day, an
 
 ## Customizing Pagination of Search Results
 
-This API also supports customizing the pagination display of search results, where `number` and `page` represent the page size and page number for pagination. This article will set the format to display 20 search results per page, as shown in the image:
+This API also supports customizing the pagination display of search results, where `number` and `page` represent the page size and page number. This article will set the format to display 20 search results per page, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/dqla1e.png" width="500" class="m-auto"></p>
 
@@ -943,7 +943,7 @@ The result is as follows:
     } ],
   "related_searches": [
     {
-      "query": "what is apple inc"
+      "query": "What is Apple Inc"
     }, {
       "query": "Apple Inc full form"
     }, {
@@ -965,5 +965,5 @@ The result is as follows:
   ]
 }
 ```
-
-It can be seen that it displays the search results in a paginated manner, showing 20 results per page, and the content of the results is similar to the above text.
+ 
+It can be seen that it paginates the search results, displaying 20 results per page, and the content of the results is similar to the above text.
