@@ -1,6 +1,6 @@
 # Google SERP API Integration Instructions
 
-Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, ads, featured snippets, knowledge graphs, as well as various content such as images and videos, aiming to provide users with the most relevant information.
+Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, ads, featured snippets, knowledge graphs, as well as various content such as images and videos, aimed at providing users with the most relevant information.
 
 This article will provide a detailed introduction to the Google SERP API, which can provide results for queries entered in the Google search engine. The content of the results also includes many types, such as featured snippets, knowledge graphs, and images.
 
@@ -14,7 +14,7 @@ To use the Google SERP API, you need to first apply for the corresponding servic
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-When applying for the first time, there will be a free quota provided, allowing you to use the API for free.
+During the first application, there will be a free quota provided, allowing you to use the API for free.
 
 ## Basic Usage
 
@@ -27,9 +27,9 @@ For example, to find information about "apple inc," we can fill in the correspon
 Here, we can see that we have set the Request Headers, including:
 
 - `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
-- `authorization`: the key to call the API, which can be selected directly after applying.
+- `authorization`: the key to call the API, which can be selected directly after application.
 
-Additionally, we have set the Request Body, including:
+Additionally, the Request Body is set, including:
 
 - `type`: the type of search resource, currently supporting only six types, with the default being `search`.
 - `query`: the search keyword.
@@ -352,7 +352,7 @@ As you can see, there is a `videos` field in the returned result, which mainly c
 
 ## Customizing the Country of Search Resources
 
-This interface also supports limiting the country of the search results. We can add the `country` parameter to limit the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
+This interface also supports limiting the country of the search results, and we can add the `country` parameter to specify the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
 
 <p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" class="m-auto"></p>
 
@@ -965,5 +965,5 @@ The result is as follows:
   ]
 }
 ```
- 
-It can be seen that it paginates the search results, displaying 20 results per page, and the content of the results is similar to the above text.
+
+As can be seen, it displays the search results in a paginated format, showing 20 results per page, with content similar to the above.
