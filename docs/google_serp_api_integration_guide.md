@@ -1,8 +1,8 @@
 # Google SERP API Integration Instructions
 
-Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, ads, featured snippets, knowledge graphs, as well as various content such as images and videos, aiming to provide users with the most relevant information.
+Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, ads, featured snippets, knowledge graphs, as well as various content such as images and videos, aimed at providing users with the most relevant information.
 
-This article will provide a detailed introduction to the Google SERP API, which can provide results for queries entered in the Google search engine. The content of the results includes many types, such as featured snippets, knowledge graphs, and images.
+This article will provide a detailed introduction to the Google SERP API, which can provide results for queries entered in the Google search engine. The content of the results also includes many types, such as featured snippets, knowledge graphs, and images.
 
 This document will introduce the integration instructions for the Google SERP API.
 
@@ -12,7 +12,7 @@ To use the Google SERP API, you need to first apply for the corresponding servic
 
 ![](https://cdn.acedata.cloud/q6ytrc.png)
 
-If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
+If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will automatically return to the current page.
 
 During the first application, there will be a free quota provided, allowing you to use the API for free.
 
@@ -20,24 +20,24 @@ During the first application, there will be a free quota provided, allowing you 
 
 First, understand the basic usage method, which is to input the type of search resource and keywords to obtain search results. You only need to simply pass the `query` field and specify the corresponding model.
 
-For example, to find information about "apple inc," we can fill in the corresponding content on the interface, as shown in the image:
+For example, to find information about "apple inc", we can fill in the corresponding content on the interface, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/lnqiye.png" width="500" class="m-auto"></p>
 
-Here, we can see that we have set the Request Headers, including:
+Here we can see that we have set the Request Headers, including:
 
-- `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
-- `authorization`: the key for calling the API, which can be directly selected after application.
+- `accept`: the format of the response result you want to receive, here filled in as `application/json`, which is JSON format.
+- `authorization`: the key to call the API, which can be directly selected after application.
 
 Additionally, the Request Body is set, including:
 
-- `type`: the type of search resource, currently supporting only six types, with the default being `search`.
+- `type`: the type of search resource, currently only six types are supported, with the default being `search`.
 - `query`: the search keyword.
 - `country`: the country where the search results are located, with the default being the United States (US).
 - `language`: the language of the search results, with the default being English (en).
 - `range`: the time range for the search results, with the default being unlimited.
-- `number`: the page size for the search results, with the default being 10.
-- `page`: the page number for the search results, with the default being 1.
+- `number`: the page size of the search results, with the default being 10.
+- `page`: the page number of the search results, with the default being 1.
 
 After selection, you can find that the corresponding code is also generated on the right side, as shown in the image:
 
@@ -187,7 +187,7 @@ The returned result contains multiple fields, described as follows:
 
 It can be seen that there is an `organic` field in the returned result, which mainly contains the results of the search keyword.
 
-Additionally, if you want to generate the corresponding interface code, you can directly copy the generated code, for example, the CURL code is as follows:
+If you want to generate the corresponding interface code, you can directly copy the generated code, for example, the CURL code is as follows:
 
 ```shell
 curl -X POST 'https://api.acedata.cloud/serp/google' \
@@ -222,7 +222,7 @@ print(response.text)
 
 ## Custom Search Type
 
-If you customize the type of search resource, we can modify the parameter `type`, which includes ordinary resources `search`, image resources `images`, news resources `news`, map resources `maps`, regional resources `places`, video resources `videos`, this article will demonstrate with the video resource `videos`.
+If you customize the type of search resource, we can modify the parameter `type`, which includes ordinary resources `search`, image resources `images`, news resources `news`, map resources `maps`, regional resources `places`, video resources `videos`, this article will demonstrate with video resources `videos`.
 
 Now let's demonstrate the specific operation.
 
@@ -344,9 +344,9 @@ You can get the following response:
 }
 ```
 
-The returned result has multiple fields, described as follows:
+The returned result contains multiple fields, described as follows:
 
-- `news`, the list of video information in the search results.
+- `news`, a list of video information from the search results.
 
 As you can see, there is a `videos` field in the returned result, which mainly contains the results of the search keywords.
 
@@ -789,7 +789,7 @@ As we can see, we successfully obtained the search results from the past day, an
 
 ## Customizing Pagination of Search Results
 
-This API also supports customizing the pagination display of search results, where `number` and `page` represent the page size and page number for pagination. This article will set the format to display 20 search results per page, as shown in the image:
+This API also supports customizing the pagination display of search results, where `number` and `page` represent the page size and page number. This article will set the format to display 20 search results per page, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/dqla1e.png" width="500" class="m-auto"></p>
 
@@ -966,4 +966,4 @@ The result is as follows:
 }
 ```
 
-It can be seen that it paginates the search results, displaying 20 results per page, with content similar to the above.
+As can be seen, it displays the search results in a paginated format, showing 20 results per page, and the content of the results is similar to the above text.
