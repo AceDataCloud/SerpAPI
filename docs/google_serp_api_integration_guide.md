@@ -20,13 +20,13 @@ During the first application, there will be a free quota provided, allowing you 
 
 First, understand the basic usage method, which is to input the type of search resource and keywords to obtain search results. You only need to simply pass the `query` field and specify the corresponding model.
 
-For example, to find information about "apple inc," you can fill in the corresponding content on the interface, as shown in the image:
+For example, to find information about "apple inc," we can fill in the corresponding content on the interface, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/lnqiye.png" width="500" class="m-auto"></p>
 
 Here, we have set the Request Headers, including:
 
-- `accept`: the format of the response you want to receive, filled in as `application/json`, which means JSON format.
+- `accept`: the format of the response result you want to receive, filled in as `application/json`, which is in JSON format.
 - `authorization`: the key to call the API, which can be selected directly after application.
 
 Additionally, the Request Body is set, including:
@@ -35,7 +35,7 @@ Additionally, the Request Body is set, including:
 - `query`: the search keyword.
 - `country`: the country where the search results are located, with the default being the United States (US).
 - `language`: the language of the search results, with the default being English (en).
-- `range`: the time range for the search results, with the default being unlimited.
+- `range`: the time range for the search results, with no restrictions by default.
 - `number`: the page size of the search results, with the default being 10.
 - `page`: the page number of the search results, with the default being 1.
 
@@ -352,7 +352,7 @@ As you can see, there is a `videos` field in the returned result, which mainly c
 
 ## Customizing the Country of Search Resources
 
-This interface also supports limiting the country of the search results. We can add the `country` parameter to specify the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
+This interface also supports limiting the country of the search results. We can add the `country` parameter to specify the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will use China as an example, and the specific information is as follows:
 
 <p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" class="m-auto"></p>
 
@@ -453,7 +453,7 @@ The output effect is as follows:
   ]
 }
 ```
-We can also customize the language of the search results. Here we additionally add the `language` field, with the content being `zh-cn`, which refers to the Simplified Chinese language. Other languages are also supported, but the abbreviation of the language must be entered, such as en (English), fr (French), zh-cn (Chinese (Simplified)), etc., as shown in the figure:
+We can also customize the language of the search results. Here we additionally add the `language` field, with the content being `zh-cn`, which refers to the Simplified Chinese language. Other languages are also supported, but the language abbreviation must be entered, such as en (English), fr (French), zh-cn (Chinese (Simplified)), etc., as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/yyrssp.png" width="500" class="m-auto"></p>
 
@@ -943,7 +943,7 @@ The result is as follows:
     } ],
   "related_searches": [
     {
-      "query": "What is Apple Inc"
+      "query": "what is apple inc"
     }, {
       "query": "Apple Inc full form"
     }, {
@@ -966,4 +966,4 @@ The result is as follows:
 }
 ```
 
-As can be seen, it displays the search results in a paginated format, showing 20 results per page, and the content of the results is similar to the above text.
+It can be seen that it displays the search results in a paginated manner, with 20 results shown per page, and the content of the results is similar to the above text.
