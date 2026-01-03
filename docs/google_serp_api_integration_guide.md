@@ -1,8 +1,8 @@
 # Google SERP API Integration Instructions
 
-Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, ads, featured snippets, knowledge graphs, as well as various content such as images and videos, aiming to provide users with the most relevant information.
+Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, ads, featured snippets, knowledge graphs, as well as various content such as images and videos, aimed at providing users with the most relevant information.
 
-This article will provide a detailed introduction to the Google SERP API, which can provide results for queries entered in the Google search engine, and the results include many types, such as featured snippets, knowledge graphs, and images.
+This article will provide a detailed introduction to the Google SERP API, which can provide results for queries entered in the Google search engine, with results containing many types, such as featured snippets, knowledge graphs, and images.
 
 This document will introduce the integration instructions for the Google SERP API.
 
@@ -14,7 +14,7 @@ To use the Google SERP API, you need to first apply for the corresponding servic
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-When applying for the first time, there will be a free quota provided, allowing you to use the API for free.
+During the first application, there will be a free quota provided, allowing you to use the API for free.
 
 ## Basic Usage
 
@@ -24,22 +24,22 @@ For example, to find information about "apple inc," we can fill in the correspon
 
 <p><img src="https://cdn.acedata.cloud/lnqiye.png" width="500" class="m-auto"></p>
 
-Here, we can see that we have set the Request Headers, including:
+Here we can see that we have set the Request Headers, including:
 
 - `accept`: the format of the response result you want to receive, filled in as `application/json`, which is in JSON format.
-- `authorization`: the key to call the API, which can be directly selected after applying.
+- `authorization`: the key to call the API, which can be directly selected after application.
 
 Additionally, the Request Body is set, including:
 
 - `type`: the type of search resource, currently supporting only six types, with the default being `search`.
-- `query`: the search keyword.
-- `country`: the country where the search results are located, with the default being the United States (US).
+- `query`: the keyword for the search.
+- `country`: the country where the search results are customized to be located, with the default being the United States (US).
 - `language`: the language of the search results, with the default being English (en).
 - `range`: the time range for the search results, with the default being unlimited.
-- `number`: the page size of the search results, with the default being 10.
-- `page`: the page number of the search results, with the default being 1.
+- `number`: the page size for the search results, with the default being 10.
+- `page`: the page number for the search results, with the default being 1.
 
-After making the selections, you can find that the corresponding code is also generated on the right side, as shown in the image:
+After selection, you can find that the corresponding code is also generated on the right side, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/1j81zr.png" width="500" class="m-auto"></p>
 
@@ -178,14 +178,14 @@ Click the "Try" button to test, as shown in the image above, and we have obtaine
 }
 ```
 
-The return result contains multiple fields, described as follows:
+The returned result contains multiple fields, described as follows:
 
-- `knowledge_graph`, the knowledge graph of the search results.
-- `organic`, detailed information of the search results.
+- `knowledge_graph`, the knowledge graph of the search result.
+- `organic`, detailed information of the search result.
 - `people_also_ask`, questions related to the search keyword.
 - `related_searches`, related searches for the search keyword.
 
-It can be seen that there is an `organic` field in the returned results, which mainly contains the results of the search keyword.
+It can be seen that there is an `organic` field in the returned result, which mainly contains the results of the search keyword.
 
 Additionally, if you want to generate the corresponding interface code, you can directly copy the generated code, for example, the CURL code is as follows:
 
@@ -352,7 +352,7 @@ As you can see, there is a `videos` field in the returned result, which mainly c
 
 ## Customizing the Country of Search Resources
 
-This interface also supports limiting the country of the search results, we can add the `country` parameter to specify the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
+This interface also supports limiting the country of the search results, we can add the `country` parameter to limit the country, the input parameter is the abbreviation of the country, such as cn (China), us (United States), this article will take China as an example, the specific information is as follows:
 
 <p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" class="m-auto"></p>
 
@@ -476,14 +476,14 @@ The running result is as follows:
 ```json
 {
   "knowledge_graph": {
-    "title": "Apple",
-    "type": "Company",
+    "title": "苹果",
+    "type": "公司",
     "website": "http://www.apple.com/",
     "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgbY1KzXEpuPeTpcw0GwN6BpQTcg1m06TDUsfdG6P-zW3eWrmu78AXyg&s=0",
     "attributes": {
-      "Founder": "Steve Jobs, Steve Wozniak, and Ronald Wayne",
-      "Founded": "April 1, 1976, Los Altos, California",
-      "Headquarters": "Cupertino, California"
+      "创始人": "史蒂夫·乔布斯、史蒂夫·沃兹尼亚克和罗纳德·韦恩",
+      "创立于": "1976 年 4 月 1 日，加利福尼亚洛思阿图斯",
+      "总部": "加利福尼亚库比蒂诺"
     }
   },
   "organic": [
@@ -555,7 +555,7 @@ The running result is as follows:
       "title": "Apple Inc. (AAPL) Stock Price, News, Quote & History - Yahoo Finance",
       "link": "https://finance.yahoo.com/quote/AAPL/",
       "snippet": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide.",
-      "date": "August 27, 2024",
+      "date": "2024年8月27日",
       "position": 5
     },
     {
@@ -573,8 +573,8 @@ The running result is as follows:
   ],
   "people_also_ask": [
     {
-      "question": "What does Apple Inc stand for?",
-      "snippet": "It was incorporated as Apple Computer, Inc. in January 1977, and sales of its computers, including the Apple II, saw significant momentum and revenue growth for the company. \"Inc.\" is the abbreviation for incorporated. A corporation is a separate legal entity from the person or people forming it.",
+      "question": "What is Apple Inc stand for?",
+      "snippet": "It was incorporated as Apple Computer, Inc. in January 1977, and sales of its computers, including the Apple II , saw significant momentum and revenue growth for the company. \"Inc.\" is the abbreviation for incorporated. A corporation is a separate legal entity from the person or people forming it.",
       "title": "What does the 'Inc.' in Apple Inc. mean? - Quora",
       "link": "https://www.quora.com/What-does-the-Inc-in-Apple-Inc-mean"
     },
@@ -591,7 +591,7 @@ The running result is as follows:
       "link": "https://en.wikipedia.org/wiki/Apple_Inc."
     },
     {
-      "question": "Why is Apple Inc called Apple?",
+      "question": "Why Apple Inc is called Apple?",
       "snippet": "With the name Apple, the new computer company would appear ahead of Atari, where Jobs used to work. Jobs confirmed this theory in an 1980 presentation, stating that the name was partly chosen because he liked apples and partly because Apple was ahead of Atari in the phone book.",
       "title": "Why Is Apple Called Apple? - Apple Scoop",
       "link": "https://applescoop.org/story/why-is-apple-called-apple"
@@ -599,28 +599,28 @@ The running result is as follows:
   ],
   "related_searches": [
     {
-      "query": "What is apple inc"
+      "query": "apple inc是什么"
     },
     {
-      "query": "apple Macau"
+      "query": "apple澳门"
     },
     {
       "query": "Apple ID"
     },
     {
-      "query": "apple USA"
+      "query": "apple美国"
     },
     {
-      "query": "apple official website"
+      "query": "apple官网"
     },
     {
-      "query": "apple US official website"
+      "query": "apple美国官网"
     },
     {
       "query": "Apple company introduction"
     },
     {
-      "query": "apple id official website"
+      "query": "apple id官网"
     }
   ],
   "credits": 1
@@ -647,7 +647,7 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 }'
 ```
 
-The result is as follows:
+The output result is as follows:
 
 ```json
 {
@@ -761,7 +761,7 @@ The result is as follows:
       "query": "Apple iPhone 13"
     },
     {
-      "query": "what is apple inc"
+      "query": "apple inc คืออะไร"
     },
     {
       "query": "Apple Inc full form"
@@ -966,4 +966,4 @@ The result is as follows:
 }
 ```
 
-It can be seen that it displays the search results in a paginated manner, with 20 results shown per page, and the content of the results is similar to the above text.
+It can be seen that it displays the search results in a paginated manner, showing 20 results per page, and the content of the results is similar to the above text.
