@@ -9,7 +9,7 @@ API home page: [Ace Data Cloud - Search Engine](https://platform.acedata.cloud/s
 
 Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, ads, featured snippets, knowledge graphs, as well as various content such as images and videos, aimed at providing users with the most relevant information.
 
-This article will provide a detailed introduction to the Google SERP API, which can provide results for queries entered in the Google search engine, with results containing many types, such as featured snippets, knowledge graphs, and images.
+This article will provide a detailed introduction to the Google SERP API, which can provide results from queries entered in the Google search engine, with results containing many types, such as featured snippets, knowledge graphs, and images.
 
 This document will introduce the integration instructions for the Google SERP API.
 
@@ -27,7 +27,7 @@ During the first application, there will be a free quota provided, allowing you 
 
 First, understand the basic usage method, which is to input the type of search resource and keywords to obtain search results. You only need to simply pass the `query` field and specify the corresponding model.
 
-For example, to find information about "apple inc," we can fill in the corresponding content on the interface, as shown in the image:
+For example, to find information about "apple inc", we can fill in the corresponding content on the interface, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/lnqiye.png" width="500" class="m-auto"></p>
 
@@ -36,11 +36,11 @@ Here we can see that we have set the Request Headers, including:
 - `accept`: the format of the response result you want to receive, filled in as `application/json`, which is in JSON format.
 - `authorization`: the key to call the API, which can be directly selected after application.
 
-Additionally, the Request Body is set, including:
+Additionally, we have set the Request Body, including:
 
 - `type`: the type of search resource, currently supporting only six types, with the default being `search`.
 - `query`: the keyword for the search.
-- `country`: the country where the search results are customized to be located, with the default being the United States (US).
+- `country`: the country where the search results are customized, with the default being the United States (US).
 - `language`: the language of the search results, with the default being English (en).
 - `range`: the time range for the search results, with the default being unlimited.
 - `number`: the page size for the search results, with the default being 10.
@@ -233,7 +233,7 @@ If you customize the type of search resource, we can modify the parameter `type`
 
 Now let's demonstrate the specific operation.
 
-First, set the `type` parameter to `videos`, and normally pass the `query` parameter, as shown:
+First, set the `type` parameter to `videos`, and normally pass the `query` parameter, as shown in the figure:
 <p><img src="https://cdn.acedata.cloud/czlt12.png" width="500" class="m-auto"></p>
 
 The corresponding code is as follows:
@@ -351,15 +351,15 @@ You can get the following response:
 }
 ```
 
-The returned result contains multiple fields, described as follows:
+The response contains multiple fields, described as follows:
 
 - `news`, the list of video information in the search results.
 
-As you can see, there is a `videos` field in the returned result, which mainly contains the results of the search keywords.
+As you can see, there is a `videos` field in the returned result, which mainly contains the results of the search keyword.
 
 ### Customizing the Country of Search Resources
 
-This interface also supports limiting the country of the search results, we can add the `country` parameter to limit the country, the input parameter is the abbreviation of the country, such as cn (China), us (United States), this article will take China as an example, the specific information is as follows:
+This interface also supports limiting the country of the search results. We can add the `country` parameter to limit the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
 
 <p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" class="m-auto"></p>
 
@@ -637,7 +637,7 @@ The running result is as follows:
 As can be seen, the results displayed here are all in Simplified Chinese, and the content of the results is similar to the above text.
 
 ### Customizing the Time Range of Search Results
-This article also allows customizing the time range of search results, which includes five options: `qdr:h` (past hour), `qdr:d` (past day), `qdr:w` (past week), `qdr:m` (past month), and by default, no restrictions. We can pass the corresponding time range through `range`, for example, setting it to `qdr:d` indicates searching for results from the past day, so the input is as follows:
+This article also allows customizing the time range of search results, which includes five options: `qdr:h` (past hour), `qdr:d` (past day), `qdr:w` (past week), `qdr:m` (past month), and the default is unlimited. We can pass the corresponding time range through `range`, for example, setting it to `qdr:d` indicates searching for results from the past day, so the input is as follows:
 
 <p><img src="https://cdn.acedata.cloud/qccfib.png" width="500" class="m-auto"></p>
 
@@ -654,7 +654,7 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 }'
 ```
 
-The output result is as follows:
+The result is as follows:
 
 ```json
 {
@@ -768,7 +768,7 @@ The output result is as follows:
       "query": "Apple iPhone 13"
     },
     {
-      "query": "apple inc คืออะไร"
+      "query": "what is apple inc"
     },
     {
       "query": "Apple Inc full form"
