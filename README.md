@@ -185,7 +185,7 @@ Click the "Try" button to test, as shown in the image above, and we have obtaine
 }
 ```
 
-The returned result contains multiple fields, described as follows:
+The return result contains multiple fields, described as follows:
 
 - `knowledge_graph`, the knowledge graph of the search result.
 - `organic`, detailed information of the search result.
@@ -229,7 +229,7 @@ print(response.text)
 
 ### Custom Search Type
 
-If you customize the type of search resource, we can modify the parameter `type`, which includes ordinary resources `search`, image resources `images`, news resources `news`, map resources `maps`, regional resources `places`, and video resources `videos`. This article will demonstrate with the video resource `videos`.
+If you customize the type of search resource, we can modify the parameter `type`, which includes ordinary resources `search`, image resources `images`, news resources `news`, map resources `maps`, regional resources `places`, and video resources `videos`. This article will demonstrate using the video resource `videos`.
 
 Now let's demonstrate the specific operation.
 
@@ -351,7 +351,7 @@ You can get the following response:
 }
 ```
 
-The returned result contains multiple fields, described as follows:
+The response contains multiple fields, described as follows:
 
 - `news`, the list of video information in the search results.
 
@@ -359,7 +359,7 @@ As you can see, there is a `videos` field in the returned result, which mainly c
 
 ### Customizing the Country of Search Resources
 
-This interface also supports limiting the country of the search results, we can add the `country` parameter to limit the country, the input parameter is the abbreviation of the country, such as cn (China), us (United States), this article will take China as an example, the specific information is as follows:
+This interface also supports limiting the country of the search results, and we can add the `country` parameter to specify the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
 
 <p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" class="m-auto"></p>
 
@@ -460,7 +460,7 @@ The output effect is as follows:
   ]
 }
 ```
-We can also customize the language of the search results. Here we additionally add the `language` field, with the content being `zh-cn`, which refers to the Simplified Chinese language. Other languages are also supported, but the language abbreviation must be entered, such as en (English), fr (French), zh-cn (Chinese (Simplified)), etc., as shown in the figure:
+We can also customize the language of the search results. Here we additionally add the `language` field, with the content being `zh-cn`, which refers to the Simplified Chinese language. Other languages are also supported, but the abbreviation of the input language must be provided, such as en (English), fr (French), zh-cn (Chinese (Simplified)), etc., as shown in the figure:
 
 <p><img src="https://cdn.acedata.cloud/yyrssp.png" width="500" class="m-auto"></p>
 
@@ -654,7 +654,7 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 }'
 ```
 
-The output is as follows:
+The output result is as follows:
 
 ```json
 {
