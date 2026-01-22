@@ -1,8 +1,8 @@
 # Google SERP API Integration Instructions
 
-Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, ads, featured snippets, knowledge graphs, as well as various content such as images and videos, aiming to provide users with the most relevant information.
+Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, ads, featured snippets, knowledge graphs, as well as various content such as images and videos, aimed at providing users with the most relevant information.
 
-This article will provide a detailed introduction to the Google SERP API, which can provide results for queries entered in the Google search engine. The results include many types, such as featured snippets, knowledge graphs, and images.
+This article will provide a detailed introduction to the Google SERP API, which can provide results for queries entered in the Google search engine, with results containing many types, such as featured snippets, knowledge graphs, and images.
 
 This document will introduce the integration instructions for the Google SERP API.
 
@@ -24,7 +24,7 @@ For example, to find information about "apple inc," we can fill in the correspon
 
 <p><img src="https://cdn.acedata.cloud/lnqiye.png" width="500" class="m-auto"></p>
 
-Here, we have set the Request Headers, including:
+Here we can see that we have set the Request Headers, including:
 
 - `accept`: the format of the response result you want to receive, filled in as `application/json`, which is in JSON format.
 - `authorization`: the key to call the API, which can be selected directly after application.
@@ -32,18 +32,18 @@ Here, we have set the Request Headers, including:
 Additionally, the Request Body is set, including:
 
 - `type`: the type of search resource, currently supporting only six types, with the default being `search`.
-- `query`: the search keyword.
-- `country`: the country where the search results are located, with the default being the United States (US).
+- `query`: the keyword for the search.
+- `country`: the country where the search results are customized to be located, with the default being the United States (US).
 - `language`: the language of the search results, with the default being English (en).
-- `range`: the time range for the search results, with no restrictions by default.
-- `number`: the page size of the search results, with the default being 10.
-- `page`: the page number of the search results, with the default being 1.
+- `range`: the time range for the search results, with the default being unlimited.
+- `number`: the page size for the search results, with the default being 10.
+- `page`: the page number for the search results, with the default being 1.
 
-After selection, you can find that the corresponding code is also generated on the right side, as shown in the image:
+After making the selections, you can find that the corresponding code is also generated on the right side, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/1j81zr.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the image above, and we have obtained the following results:
+Click the "Try" button to conduct a test, as shown in the image above, and we have obtained the following results:
 ```json
 {
   "knowledge_graph": {
@@ -222,7 +222,7 @@ print(response.text)
 
 ## Custom Search Type
 
-If you customize the type of search resource, we can modify the parameter `type`, which includes ordinary resources `search`, image resources `images`, news resources `news`, map resources `maps`, regional resources `places`, and video resources `videos`. This article will demonstrate using the video resource `videos`.
+If you customize the type of search resource, we can modify the parameter `type`, which includes ordinary resources `search`, image resources `images`, news resources `news`, map resources `maps`, regional resources `places`, and video resources `videos`. This article will demonstrate with the video resource `videos`.
 
 Now let's demonstrate the specific operation.
 
@@ -344,7 +344,7 @@ You can get the following response:
 }
 ```
 
-The response contains multiple fields, described as follows:
+The returned result contains multiple fields, described as follows:
 
 - `news`, the list of video information in the search results.
 
@@ -352,7 +352,7 @@ As you can see, there is a `videos` field in the returned result, which mainly c
 
 ## Customizing the Country of Search Resources
 
-This interface also supports limiting the country of the search results, and we can add the `country` parameter to specify the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
+This interface also supports limiting the country of the search results, we can add the `country` parameter to specify the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
 
 <p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" class="m-auto"></p>
 
@@ -789,7 +789,7 @@ As we can see, we successfully obtained the search results from the past day, an
 
 ## Customizing Pagination of Search Results
 
-This API also supports customizing the pagination display of search results, where `number` and `page` represent the page size and page number. This article will set the format to display 20 search results per page, as shown in the image:
+This API also supports customizing the pagination display of search results, where `number` and `page` represent the page size and page number for pagination. This article will set the format to display 20 search results per page, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/dqla1e.png" width="500" class="m-auto"></p>
 
@@ -966,4 +966,4 @@ The result is as follows:
 }
 ```
 
-It can be seen that it displays the search results in a paginated manner, showing 20 results per page, and the content of the results is similar to the above text.
+It can be seen that it displays the search results in a paginated manner, with 20 results shown per page, and the content of the results is similar to the above text.
