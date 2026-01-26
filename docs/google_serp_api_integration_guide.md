@@ -2,7 +2,7 @@
 
 Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, ads, featured snippets, knowledge graphs, as well as various content such as images and videos, aimed at providing users with the most relevant information.
 
-This article will provide a detailed introduction to the Google SERP API, which can provide results for queries entered in the Google search engine, with results containing many types, such as featured snippets, knowledge graphs, and images.
+This article will provide a detailed introduction to the Google SERP API, which can provide results from queries entered in the Google search engine, with results containing many types, such as featured snippets, knowledge graphs, and images.
 
 This document will introduce the integration instructions for the Google SERP API.
 
@@ -20,7 +20,7 @@ During the first application, there will be a free quota provided, allowing you 
 
 First, understand the basic usage method, which is to input the type of search resource and keywords to obtain search results. You only need to simply pass the `query` field and specify the corresponding model.
 
-For example, to find information about "apple inc," we can fill in the corresponding content on the interface, as shown in the image:
+For example, to find information about "apple inc", we can fill in the corresponding content on the interface, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/lnqiye.png" width="500" class="m-auto"></p>
 
@@ -39,11 +39,11 @@ Additionally, we have set the Request Body, including:
 - `number`: the page size for the search results, with the default being 10.
 - `page`: the page number for the search results, with the default being 1.
 
-After making the selections, you can find that the corresponding code is also generated on the right side, as shown in the image:
+After selection, you can find that the corresponding code is also generated on the right side, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/1j81zr.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to conduct a test, as shown in the image above, and we have obtained the following results:
+Click the "Try" button to test, as shown in the image above, and we have obtained the following results:
 ```json
 {
   "knowledge_graph": {
@@ -226,7 +226,7 @@ If you customize the type of search resource, we can modify the parameter `type`
 
 Now let's demonstrate the specific operation.
 
-First, set the `type` parameter to `videos`, and pass the `query` parameter normally, as shown in the figure:
+First, set the `type` parameter to `videos`, and normally pass the `query` parameter, as shown in the figure:
 <p><img src="https://cdn.acedata.cloud/czlt12.png" width="500" class="m-auto"></p>
 
 The corresponding code is as follows:
@@ -647,7 +647,7 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 }'
 ```
 
-The output is as follows:
+The result is as follows:
 
 ```json
 {
@@ -789,7 +789,7 @@ As we can see, we successfully obtained the search results from the past day, an
 
 ## Customizing Pagination of Search Results
 
-This API also supports customizing the pagination display of search results, where `number` and `page` represent the page size and page number. This article will set the format to display 20 search results per page, as shown in the image:
+This API also supports customizing the pagination display of search results, where `number` and `page` represent the page size and page number for pagination. This article will set the format to display 20 search results per page, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/dqla1e.png" width="500" class="m-auto"></p>
 
