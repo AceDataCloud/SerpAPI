@@ -1,8 +1,8 @@
 # Google SERP API Integration Instructions
 
-Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, ads, featured snippets, knowledge graphs, as well as various content such as images and videos, aimed at providing users with the most relevant information.
+Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, ads, featured snippets, knowledge graphs, as well as various content such as images and videos, aiming to provide users with the most relevant information.
 
-This article will provide a detailed introduction to the Google SERP API, which can provide results from queries entered in the Google search engine, with results containing many types, such as featured snippets, knowledge graphs, and images.
+This article will provide a detailed introduction to the Google SERP API, which can provide results for queries entered in the Google search engine. The content of the results also includes many types, such as featured snippets, knowledge graphs, and images.
 
 This document will introduce the integration instructions for the Google SERP API.
 
@@ -26,24 +26,24 @@ For example, to find information about "apple inc", we can fill in the correspon
 
 Here we can see that we have set the Request Headers, including:
 
-- `accept`: the format of the response result you want to receive, filled in as `application/json`, which is in JSON format.
+- `accept`: the format of the response result you want to receive, here filled in as `application/json`, which is in JSON format.
 - `authorization`: the key to call the API, which can be directly selected after application.
 
-Additionally, we have set the Request Body, including:
+Additionally, we set the Request Body, including:
 
 - `type`: the type of search resource, currently supporting only six types, with the default being `search`.
 - `query`: the keyword for the search.
-- `country`: the country where the search results are customized to be located, with the default being the United States (US).
+- `country`: the country where the search results are customized, with the default being the United States (US).
 - `language`: the language of the search results, with the default being English (en).
 - `range`: the time range for the search results, with the default being unlimited.
 - `number`: the page size for the search results, with the default being 10.
 - `page`: the page number for the search results, with the default being 1.
 
-After selection, you can find that the corresponding code is also generated on the right side, as shown in the image:
+After making the selections, you can find that the corresponding code is also generated on the right side, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/1j81zr.png" width="500" class="m-auto"></p>
 
-Click the "Try" button to test, as shown in the image above, and we have obtained the following results:
+Click the "Try" button to conduct a test, as shown in the image above, and we have obtained the following results:
 ```json
 {
   "knowledge_graph": {
@@ -178,7 +178,7 @@ Click the "Try" button to test, as shown in the image above, and we have obtaine
 }
 ```
 
-The returned result contains multiple fields, described as follows:
+The return result contains multiple fields, described as follows:
 
 - `knowledge_graph`, the knowledge graph of the search result.
 - `organic`, detailed information of the search result.
@@ -222,7 +222,7 @@ print(response.text)
 
 ## Custom Search Type
 
-If you customize the type of search resource, we can modify the parameter `type`, which includes ordinary resources `search`, image resources `images`, news resources `news`, map resources `maps`, regional resources `places`, and video resources `videos`. This article will demonstrate using the video resource `videos`.
+If you customize the type of search resource, we can modify the parameter `type`, which includes ordinary resources `search`, image resources `images`, news resources `news`, map resources `maps`, regional resources `places`, and video resources `videos`. This article will demonstrate with the video resource `videos`.
 
 Now let's demonstrate the specific operation.
 
@@ -352,7 +352,7 @@ As you can see, there is a `videos` field in the returned result, which mainly c
 
 ## Customizing the Country of Search Resources
 
-This interface also supports limiting the country of the search results, we can add the `country` parameter to specify the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
+This interface also supports limiting the country of the search results, we can add the `country` parameter to limit the country, the input parameter is the abbreviation of the country, such as cn (China), us (United States), this article will take China as an example, the specific information is as follows:
 
 <p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" class="m-auto"></p>
 
@@ -476,14 +476,14 @@ The running result is as follows:
 ```json
 {
   "knowledge_graph": {
-    "title": "苹果",
-    "type": "公司",
+    "title": "Apple",
+    "type": "Company",
     "website": "http://www.apple.com/",
     "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgbY1KzXEpuPeTpcw0GwN6BpQTcg1m06TDUsfdG6P-zW3eWrmu78AXyg&s=0",
     "attributes": {
-      "创始人": "史蒂夫·乔布斯、史蒂夫·沃兹尼亚克和罗纳德·韦恩",
-      "创立于": "1976 年 4 月 1 日，加利福尼亚洛思阿图斯",
-      "总部": "加利福尼亚库比蒂诺"
+      "Founder": "Steve Jobs, Steve Wozniak, and Ronald Wayne",
+      "Founded": "April 1, 1976, Los Altos, California",
+      "Headquarters": "Cupertino, California"
     }
   },
   "organic": [
@@ -555,7 +555,7 @@ The running result is as follows:
       "title": "Apple Inc. (AAPL) Stock Price, News, Quote & History - Yahoo Finance",
       "link": "https://finance.yahoo.com/quote/AAPL/",
       "snippet": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide.",
-      "date": "2024年8月27日",
+      "date": "August 27, 2024",
       "position": 5
     },
     {
@@ -573,8 +573,8 @@ The running result is as follows:
   ],
   "people_also_ask": [
     {
-      "question": "What is Apple Inc stand for?",
-      "snippet": "It was incorporated as Apple Computer, Inc. in January 1977, and sales of its computers, including the Apple II , saw significant momentum and revenue growth for the company. \"Inc.\" is the abbreviation for incorporated. A corporation is a separate legal entity from the person or people forming it.",
+      "question": "What does Apple Inc stand for?",
+      "snippet": "It was incorporated as Apple Computer, Inc. in January 1977, and sales of its computers, including the Apple II, saw significant momentum and revenue growth for the company. \"Inc.\" is the abbreviation for incorporated. A corporation is a separate legal entity from the person or people forming it.",
       "title": "What does the 'Inc.' in Apple Inc. mean? - Quora",
       "link": "https://www.quora.com/What-does-the-Inc-in-Apple-Inc-mean"
     },
@@ -591,7 +591,7 @@ The running result is as follows:
       "link": "https://en.wikipedia.org/wiki/Apple_Inc."
     },
     {
-      "question": "Why Apple Inc is called Apple?",
+      "question": "Why is Apple Inc called Apple?",
       "snippet": "With the name Apple, the new computer company would appear ahead of Atari, where Jobs used to work. Jobs confirmed this theory in an 1980 presentation, stating that the name was partly chosen because he liked apples and partly because Apple was ahead of Atari in the phone book.",
       "title": "Why Is Apple Called Apple? - Apple Scoop",
       "link": "https://applescoop.org/story/why-is-apple-called-apple"
@@ -599,28 +599,28 @@ The running result is as follows:
   ],
   "related_searches": [
     {
-      "query": "apple inc是什么"
+      "query": "What is apple inc"
     },
     {
-      "query": "apple澳门"
+      "query": "apple Macau"
     },
     {
       "query": "Apple ID"
     },
     {
-      "query": "apple美国"
+      "query": "apple USA"
     },
     {
-      "query": "apple官网"
+      "query": "apple official website"
     },
     {
-      "query": "apple美国官网"
+      "query": "apple US official website"
     },
     {
       "query": "Apple company introduction"
     },
     {
-      "query": "apple id官网"
+      "query": "apple id official website"
     }
   ],
   "credits": 1
@@ -630,7 +630,7 @@ The running result is as follows:
 As can be seen, the results displayed here are all in Simplified Chinese, and the content of the results is similar to the above text.
 
 ## Customizing the Time Range of Search Results
-This article also allows customizing the time range of search results, which includes five options: `qdr:h` (past hour), `qdr:d` (past day), `qdr:w` (past week), `qdr:m` (past month), and by default, no restrictions. We can pass the corresponding time range through `range`, for example, setting it to `qdr:d` indicates searching for results from the past day, so the input is as follows:
+This article also allows customizing the time range of search results, which includes five options: `qdr:h` (past hour), `qdr:d` (past day), `qdr:w` (past week), `qdr:m` (past month), and the default is unlimited. We can pass the corresponding time range through `range`, for example, setting it to `qdr:d` indicates searching for results from the past day, so the input is as follows:
 
 <p><img src="https://cdn.acedata.cloud/qccfib.png" width="500" class="m-auto"></p>
 
@@ -943,7 +943,7 @@ The result is as follows:
     } ],
   "related_searches": [
     {
-      "query": "What is Apple Inc"
+      "query": "what is apple inc"
     }, {
       "query": "Apple Inc full form"
     }, {
@@ -966,4 +966,4 @@ The result is as follows:
 }
 ```
 
-As can be seen, it displays the search results in a paginated format, showing 20 results per page, and the content of the results is similar to the above text.
+It can be seen that it displays the search results in a paginated manner, with 20 results shown per page, and the content of the results is similar to the above text.
