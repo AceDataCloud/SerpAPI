@@ -20,26 +20,26 @@ During the first application, there will be a free quota provided, allowing you 
 
 First, understand the basic usage method, which is to input the type of search resource and keywords to obtain search results. You only need to simply pass the `query` field and specify the corresponding model.
 
-For example, to find information about "apple inc," you can fill in the corresponding content on the interface, as shown in the image:
+For example, to find information about "apple inc," we can fill in the corresponding content on the interface, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/lnqiye.png" width="500" class="m-auto"></p>
 
-Here, we have set the Request Headers, including:
+Here, we can see that we have set the Request Headers, including:
 
-- `accept`: the format of the response you want to receive, filled in as `application/json`, which means JSON format.
+- `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
 - `authorization`: the key to call the API, which can be selected directly after application.
 
-Additionally, the Request Body is set, including:
+Additionally, we have set the Request Body, including:
 
 - `type`: the type of search resource, currently supporting only six types, with the default being `search`.
 - `query`: the search keyword.
 - `country`: the country where the search results are located, with the default being the United States (US).
 - `language`: the language of the search results, with the default being English (en).
-- `range`: the time range for the search results, with no restrictions by default.
+- `range`: the time range for the search results, with the default being unlimited.
 - `number`: the page size of the search results, with the default being 10.
 - `page`: the page number of the search results, with the default being 1.
 
-After making the selections, you can see that the corresponding code is also generated on the right side, as shown in the image:
+After making the selections, you can find that the corresponding code is also generated on the right side, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/1j81zr.png" width="500" class="m-auto"></p>
 
@@ -348,11 +348,11 @@ The response contains multiple fields, described as follows:
 
 - `news`, the list of video information in the search results.
 
-As you can see, there is a `videos` field in the returned results, which mainly contains the results of the search keywords.
+As you can see, there is a `videos` field in the returned result, which mainly contains the results of the search keywords.
 
 ## Customizing the Country of Search Resources
 
-This interface also supports limiting the country of the search results. We can add the `country` parameter to limit the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
+This interface also supports limiting the country of the search results, and we can add the `country` parameter to specify the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
 
 <p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" class="m-auto"></p>
 
@@ -476,14 +476,14 @@ The running result is as follows:
 ```json
 {
   "knowledge_graph": {
-    "title": "苹果",
-    "type": "公司",
+    "title": "Apple",
+    "type": "Company",
     "website": "http://www.apple.com/",
     "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgbY1KzXEpuPeTpcw0GwN6BpQTcg1m06TDUsfdG6P-zW3eWrmu78AXyg&s=0",
     "attributes": {
-      "创始人": "史蒂夫·乔布斯、史蒂夫·沃兹尼亚克和罗纳德·韦恩",
-      "创立于": "1976 年 4 月 1 日，加利福尼亚洛思阿图斯",
-      "总部": "加利福尼亚库比蒂诺"
+      "Founder": "Steve Jobs, Steve Wozniak, and Ronald Wayne",
+      "Founded": "April 1, 1976, Los Altos, California",
+      "Headquarters": "Cupertino, California"
     }
   },
   "organic": [
@@ -555,7 +555,7 @@ The running result is as follows:
       "title": "Apple Inc. (AAPL) Stock Price, News, Quote & History - Yahoo Finance",
       "link": "https://finance.yahoo.com/quote/AAPL/",
       "snippet": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide.",
-      "date": "2024年8月27日",
+      "date": "August 27, 2024",
       "position": 5
     },
     {
@@ -573,8 +573,8 @@ The running result is as follows:
   ],
   "people_also_ask": [
     {
-      "question": "What is Apple Inc stand for?",
-      "snippet": "It was incorporated as Apple Computer, Inc. in January 1977, and sales of its computers, including the Apple II , saw significant momentum and revenue growth for the company. \"Inc.\" is the abbreviation for incorporated. A corporation is a separate legal entity from the person or people forming it.",
+      "question": "What does Apple Inc stand for?",
+      "snippet": "It was incorporated as Apple Computer, Inc. in January 1977, and sales of its computers, including the Apple II, saw significant momentum and revenue growth for the company. \"Inc.\" is the abbreviation for incorporated. A corporation is a separate legal entity from the person or people forming it.",
       "title": "What does the 'Inc.' in Apple Inc. mean? - Quora",
       "link": "https://www.quora.com/What-does-the-Inc-in-Apple-Inc-mean"
     },
@@ -591,7 +591,7 @@ The running result is as follows:
       "link": "https://en.wikipedia.org/wiki/Apple_Inc."
     },
     {
-      "question": "Why Apple Inc is called Apple?",
+      "question": "Why is Apple Inc called Apple?",
       "snippet": "With the name Apple, the new computer company would appear ahead of Atari, where Jobs used to work. Jobs confirmed this theory in an 1980 presentation, stating that the name was partly chosen because he liked apples and partly because Apple was ahead of Atari in the phone book.",
       "title": "Why Is Apple Called Apple? - Apple Scoop",
       "link": "https://applescoop.org/story/why-is-apple-called-apple"
@@ -599,28 +599,28 @@ The running result is as follows:
   ],
   "related_searches": [
     {
-      "query": "apple inc是什么"
+      "query": "What is apple inc"
     },
     {
-      "query": "apple澳门"
+      "query": "apple Macau"
     },
     {
       "query": "Apple ID"
     },
     {
-      "query": "apple美国"
+      "query": "apple USA"
     },
     {
-      "query": "apple官网"
+      "query": "apple official website"
     },
     {
-      "query": "apple美国官网"
+      "query": "apple US official website"
     },
     {
       "query": "Apple company introduction"
     },
     {
-      "query": "apple id官网"
+      "query": "apple id official website"
     }
   ],
   "credits": 1
@@ -647,7 +647,7 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 }'
 ```
 
-The output result is as follows:
+The output is as follows:
 
 ```json
 {
@@ -943,7 +943,7 @@ The result is as follows:
     } ],
   "related_searches": [
     {
-      "query": "what is apple inc"
+      "query": "What is Apple Inc"
     }, {
       "query": "Apple Inc full form"
     }, {
@@ -966,4 +966,4 @@ The result is as follows:
 }
 ```
 
-It can be seen that it displays the search results in a paginated manner, with 20 results shown per page, and the content of the results is similar to the above text.
+As can be seen, it displays the search results in a paginated format, showing 20 results per page, with content similar to the above.
