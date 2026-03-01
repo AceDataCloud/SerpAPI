@@ -31,10 +31,10 @@ For example, to find information about "apple inc," we can fill in the correspon
 
 <p><img src="https://cdn.acedata.cloud/lnqiye.png" width="500" class="m-auto"></p>
 
-Here, we have set the Request Headers, including:
+Here, we can see that we have set the Request Headers, including:
 
-- `accept`: the format of the response result you want to receive, filled in as `application/json`, which is in JSON format.
-- `authorization`: the key to call the API, which can be selected directly after application.
+- `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
+- `authorization`: the key to call the API, which can be directly selected after application.
 
 Additionally, the Request Body is set, including:
 
@@ -42,7 +42,7 @@ Additionally, the Request Body is set, including:
 - `query`: the search keyword.
 - `country`: the country where the search results are located, with the default being the United States (US).
 - `language`: the language of the search results, with the default being English (en).
-- `range`: the time range for the search results, with no restrictions by default.
+- `range`: the time range for the search results, with the default being unlimited.
 - `number`: the page size of the search results, with the default being 10.
 - `page`: the page number of the search results, with the default being 1.
 
@@ -233,7 +233,7 @@ If you customize the type of search resource, we can modify the parameter `type`
 
 Now let's demonstrate the specific operation.
 
-First, set the `type` parameter to `videos`, and normally pass the `query` parameter, as shown in the figure:
+First, set the `type` parameter to `videos`, and normally pass the `query` parameter, as shown:
 <p><img src="https://cdn.acedata.cloud/czlt12.png" width="500" class="m-auto"></p>
 
 The corresponding code is as follows:
@@ -351,7 +351,7 @@ You can get the following response:
 }
 ```
 
-The returned result has multiple fields, described as follows:
+The returned result contains multiple fields, described as follows:
 
 - `news`, the list of video information in the search results.
 
@@ -359,7 +359,7 @@ As you can see, there is a `videos` field in the returned result, which mainly c
 
 ### Customizing the Country of Search Resources
 
-This interface also supports limiting the country of the search results, we can add the `country` parameter to specify the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
+This interface also supports limiting the country of the search results. We can add the `country` parameter to limit the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
 
 <p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" class="m-auto"></p>
 
