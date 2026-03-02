@@ -7,9 +7,9 @@ API home page: [Ace Data Cloud - Search Engine](https://platform.acedata.cloud/s
 ## Get Started
 
 
-Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, ads, featured snippets, knowledge graphs, as well as various content such as images and videos, aiming to provide users with the most relevant information.
+Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, ads, featured snippets, knowledge graphs, as well as various content such as images and videos, aimed at providing users with the most relevant information.
 
-This article will provide a detailed introduction to the Google SERP API, which can provide results for queries entered in the Google search engine. The results include many types, such as featured snippets, knowledge graphs, and images.
+This article will provide a detailed introduction to the Google SERP API, which can provide results for queries entered in the Google search engine, and the results include many types, such as featured snippets, knowledge graphs, and images.
 
 This document will introduce the integration instructions for the Google SERP API.
 
@@ -21,7 +21,7 @@ To use the Google SERP API, you need to first apply for the corresponding servic
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-During the first application, there will be a free quota provided, allowing you to use the API for free.
+When applying for the first time, there will be a free quota provided, allowing you to use the API for free.
 
 ### Basic Usage
 
@@ -31,10 +31,10 @@ For example, to find information about "apple inc," we can fill in the correspon
 
 <p><img src="https://cdn.acedata.cloud/lnqiye.png" width="500" class="m-auto"></p>
 
-Here, we can see that we have set the Request Headers, including:
+Here we can see that we have set the Request Headers, including:
 
-- `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
-- `authorization`: the key to call the API, which can be directly selected after application.
+- `accept`: the format of the response result you want to receive, filled in as `application/json`, which is in JSON format.
+- `authorization`: the key to call the API, which can be directly selected after applying.
 
 Additionally, the Request Body is set, including:
 
@@ -46,7 +46,7 @@ Additionally, the Request Body is set, including:
 - `number`: the page size of the search results, with the default being 10.
 - `page`: the page number of the search results, with the default being 1.
 
-After selection, you can find that the corresponding code is also generated on the right side, as shown in the image:
+After making the selections, you can find that the corresponding code is also generated on the right side, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/1j81zr.png" width="500" class="m-auto"></p>
 
@@ -185,7 +185,7 @@ Click the "Try" button to test, as shown in the image above, and we have obtaine
 }
 ```
 
-The return result contains multiple fields, described as follows:
+The returned result contains multiple fields, described as follows:
 
 - `knowledge_graph`, the knowledge graph of the search result.
 - `organic`, detailed information of the search result.
@@ -229,7 +229,7 @@ print(response.text)
 
 ### Custom Search Type
 
-If you customize the type of search resource, we can modify the parameter `type`, which includes ordinary resources `search`, image resources `images`, news resources `news`, map resources `maps`, regional resources `places`, and video resources `videos`. This article will demonstrate with the video resource `videos`.
+If you customize the type of search resource, we can modify the parameter `type`, which includes ordinary resources `search`, image resources `images`, news resources `news`, map resources `maps`, regional resources `places`, and video resources `videos`. This article will demonstrate using the video resource `videos`.
 
 Now let's demonstrate the specific operation.
 
@@ -359,7 +359,7 @@ As you can see, there is a `videos` field in the returned result, which mainly c
 
 ### Customizing the Country of Search Resources
 
-This interface also supports limiting the country of the search results. We can add the `country` parameter to limit the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
+This interface also supports limiting the country of the search results, we can add the `country` parameter to specify the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
 
 <p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" class="m-auto"></p>
 
@@ -460,7 +460,7 @@ The output effect is as follows:
   ]
 }
 ```
-We can also customize the language of the search results. Here we additionally add the `language` field, with the content being `zh-cn`, which refers to the Simplified Chinese language. Other languages are also supported, but the abbreviation of the language must be entered, such as en (English), fr (French), zh-cn (Chinese (Simplified)), etc., as shown in the figure:
+We can also customize the language of the search results. Here we additionally add the `language` field, with the content being `zh-cn`, which refers to the Simplified Chinese language. Other languages are also supported, but the language abbreviation must be entered, such as en (English), fr (French), zh-cn (Chinese (Simplified)), etc., as shown in the figure:
 
 <p><img src="https://cdn.acedata.cloud/yyrssp.png" width="500" class="m-auto"></p>
 
