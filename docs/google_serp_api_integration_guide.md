@@ -1,8 +1,8 @@
 # Google SERP API Integration Instructions
 
-Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, ads, featured snippets, knowledge graphs, as well as various content such as images and videos, aimed at providing users with the most relevant information.
+Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, ads, featured snippets, knowledge graphs, as well as various content such as images and videos, aiming to provide users with the most relevant information.
 
-This article will provide a detailed introduction to the Google SERP API, which can provide results for queries entered in the Google search engine, and the results include many types, such as featured snippets, knowledge graphs, and images.
+This article will provide a detailed introduction to the Google SERP API, which can provide results for queries entered in the Google search engine. The content of the results also includes many types, such as featured snippets, knowledge graphs, and images.
 
 This document will introduce the integration instructions for the Google SERP API.
 
@@ -26,18 +26,18 @@ For example, to find information about "apple inc," we can fill in the correspon
 
 Here we can see that we have set the Request Headers, including:
 
-- `accept`: the format of the response result you want to receive, filled in as `application/json`, which is in JSON format.
-- `authorization`: the key to call the API, which can be directly selected after applying.
+- `accept`: the format of the response result you want to receive, filled in as `application/json`, which means JSON format.
+- `authorization`: the key to call the API, which can be selected directly after applying.
 
-Additionally, the Request Body is set, including:
+Additionally, we set the Request Body, including:
 
 - `type`: the type of search resource, currently supporting only six types, with the default being `search`.
-- `query`: the search keyword.
-- `country`: the country where the search results are located, with the default being the United States (US).
+- `query`: the keyword for the search.
+- `country`: the country where the search results are customized to be located, with the default being the United States (US).
 - `language`: the language of the search results, with the default being English (en).
 - `range`: the time range for the search results, with the default being unlimited.
-- `number`: the page size of the search results, with the default being 10.
-- `page`: the page number of the search results, with the default being 1.
+- `number`: the page size for the search results, with the default being 10.
+- `page`: the page number for the search results, with the default being 1.
 
 After making the selections, you can find that the corresponding code is also generated on the right side, as shown in the image:
 
@@ -344,15 +344,15 @@ You can get the following response:
 }
 ```
 
-The returned result contains multiple fields, described as follows:
+The response contains multiple fields, described as follows:
 
-- `news`, the list of video information in the search results.
+- `news`, a list of video information from the search results.
 
 As you can see, there is a `videos` field in the returned result, which mainly contains the results of the search keywords.
 
 ## Customizing the Country of Search Resources
 
-This interface also supports limiting the country of the search results, we can add the `country` parameter to specify the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
+This interface also supports limiting the country of the search results. We can add the `country` parameter to specify the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
 
 <p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" class="m-auto"></p>
 
@@ -453,7 +453,7 @@ The output effect is as follows:
   ]
 }
 ```
-We can also customize the language of the search results. Here we additionally add the `language` field, with the content being `zh-cn`, which refers to the Simplified Chinese language. Other languages are also supported, but the language abbreviation must be entered, such as en (English), fr (French), zh-cn (Chinese (Simplified)), etc., as shown in the figure:
+We can also customize the language of the search results. Here we additionally add the `language` field, with the content being `zh-cn`, which refers to the Simplified Chinese language. Other languages are also supported, but the language abbreviation must be entered, such as en (English), fr (French), zh-cn (Chinese (Simplified)), etc., as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/yyrssp.png" width="500" class="m-auto"></p>
 
@@ -943,7 +943,7 @@ The result is as follows:
     } ],
   "related_searches": [
     {
-      "query": "What is Apple Inc"
+      "query": "what is apple inc"
     }, {
       "query": "Apple Inc full form"
     }, {
@@ -966,4 +966,4 @@ The result is as follows:
 }
 ```
 
-As can be seen, it displays the search results in a paginated format, showing 20 results per page, and the content of the results is similar to the above text.
+It can be seen that it displays the search results in a paginated manner, with 20 results shown per page, and the content of the results is similar to the above text.
