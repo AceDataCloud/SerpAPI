@@ -187,12 +187,12 @@ Click the "Try" button to test, as shown in the image above, and we have obtaine
 
 The returned result contains multiple fields, described as follows:
 
-- `knowledge_graph`, the knowledge graph of the search results.
-- `organic`, detailed information of the search results.
+- `knowledge_graph`, the knowledge graph of the search result.
+- `organic`, detailed information of the search result.
 - `people_also_ask`, questions related to the search keyword.
 - `related_searches`, related searches for the search keyword.
 
-It can be seen that there is an `organic` field in the returned results, which mainly contains the results of the search keyword.
+It can be seen that there is an `organic` field in the returned result, which mainly contains the results of the search keyword.
 
 Additionally, if you want to generate the corresponding interface code, you can directly copy the generated code, for example, the CURL code is as follows:
 
@@ -359,7 +359,7 @@ As you can see, there is a `videos` field in the returned result, which mainly c
 
 ### Customizing the Country of Search Resources
 
-This interface also supports limiting the country of the search results, and we can add the `country` parameter to specify the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
+This interface also supports limiting the country of the search results. We can add the `country` parameter to limit the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
 
 <p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" class="m-auto"></p>
 
@@ -460,7 +460,7 @@ The output effect is as follows:
   ]
 }
 ```
-We can also customize the language of the search results. Here we additionally add the `language` field, with the content being `zh-cn`, which refers to the Simplified Chinese language. Other languages are also supported, but the language abbreviation must be entered, such as en (English), fr (French), zh-cn (Chinese (Simplified)), etc., as shown in the figure:
+We can also customize the language of the search results. Here we additionally add the `language` field, with the content being `zh-cn`, which refers to the Simplified Chinese language. Other languages are also supported, but the abbreviation of the language must be entered, such as en (English), fr (French), zh-cn (Chinese (Simplified)), etc., as shown in the figure:
 
 <p><img src="https://cdn.acedata.cloud/yyrssp.png" width="500" class="m-auto"></p>
 
@@ -483,14 +483,14 @@ The running result is as follows:
 ```json
 {
   "knowledge_graph": {
-    "title": "苹果",
-    "type": "公司",
+    "title": "Apple",
+    "type": "Company",
     "website": "http://www.apple.com/",
     "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgbY1KzXEpuPeTpcw0GwN6BpQTcg1m06TDUsfdG6P-zW3eWrmu78AXyg&s=0",
     "attributes": {
-      "创始人": "史蒂夫·乔布斯、史蒂夫·沃兹尼亚克和罗纳德·韦恩",
-      "创立于": "1976 年 4 月 1 日，加利福尼亚洛思阿图斯",
-      "总部": "加利福尼亚库比蒂诺"
+      "Founder": "Steve Jobs, Steve Wozniak, and Ronald Wayne",
+      "Founded": "April 1, 1976, Los Altos, California",
+      "Headquarters": "Cupertino, California"
     }
   },
   "organic": [
@@ -562,7 +562,7 @@ The running result is as follows:
       "title": "Apple Inc. (AAPL) Stock Price, News, Quote & History - Yahoo Finance",
       "link": "https://finance.yahoo.com/quote/AAPL/",
       "snippet": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide.",
-      "date": "2024年8月27日",
+      "date": "August 27, 2024",
       "position": 5
     },
     {
@@ -580,8 +580,8 @@ The running result is as follows:
   ],
   "people_also_ask": [
     {
-      "question": "What is Apple Inc stand for?",
-      "snippet": "It was incorporated as Apple Computer, Inc. in January 1977, and sales of its computers, including the Apple II , saw significant momentum and revenue growth for the company. \"Inc.\" is the abbreviation for incorporated. A corporation is a separate legal entity from the person or people forming it.",
+      "question": "What does Apple Inc stand for?",
+      "snippet": "It was incorporated as Apple Computer, Inc. in January 1977, and sales of its computers, including the Apple II, saw significant momentum and revenue growth for the company. \"Inc.\" is the abbreviation for incorporated. A corporation is a separate legal entity from the person or people forming it.",
       "title": "What does the 'Inc.' in Apple Inc. mean? - Quora",
       "link": "https://www.quora.com/What-does-the-Inc-in-Apple-Inc-mean"
     },
@@ -598,7 +598,7 @@ The running result is as follows:
       "link": "https://en.wikipedia.org/wiki/Apple_Inc."
     },
     {
-      "question": "Why Apple Inc is called Apple?",
+      "question": "Why is Apple Inc called Apple?",
       "snippet": "With the name Apple, the new computer company would appear ahead of Atari, where Jobs used to work. Jobs confirmed this theory in an 1980 presentation, stating that the name was partly chosen because he liked apples and partly because Apple was ahead of Atari in the phone book.",
       "title": "Why Is Apple Called Apple? - Apple Scoop",
       "link": "https://applescoop.org/story/why-is-apple-called-apple"
@@ -606,28 +606,28 @@ The running result is as follows:
   ],
   "related_searches": [
     {
-      "query": "apple inc是什么"
+      "query": "What is apple inc"
     },
     {
-      "query": "apple澳门"
+      "query": "apple Macau"
     },
     {
       "query": "Apple ID"
     },
     {
-      "query": "apple美国"
+      "query": "apple USA"
     },
     {
-      "query": "apple官网"
+      "query": "apple official website"
     },
     {
-      "query": "apple美国官网"
+      "query": "apple US official website"
     },
     {
       "query": "Apple company introduction"
     },
     {
-      "query": "apple id官网"
+      "query": "apple id official website"
     }
   ],
   "credits": 1
