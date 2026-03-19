@@ -2,809 +2,842 @@
 
 Search Engine Results Page (SERP) related API.
 
-API home page: [Ace Data Cloud - Search Engine](https://platform.acedata.cloud/services/a9af5926-e8d8-4c5e-bdef-bbebf19cdbc3)
+![Platform](https://img.shields.io/badge/platform-Ace%20Data%20Cloud-0f766e?style=flat-square) ![API](https://img.shields.io/badge/type-AI%20API-2563eb?style=flat-square) ![Docs](https://img.shields.io/badge/docs-online-16a34a?style=flat-square)
 
-## Get Started
+![Search Engine](https://cdn.acedata.cloud/o5gj5l.png/thumb_600x300)
 
+API home page: [Ace Data Cloud - Search Engine](https://platform.acedata.cloud/service/serp)
 
-Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, ads, featured snippets, knowledge graphs, as well as various content such as images and videos, aiming to provide users with the most relevant information.
+Keywords: serp-api, web-search, google-search, search-api, rest-api, ai-api, AI API, REST API, Developer API, Ace Data Cloud
 
-This article will provide a detailed introduction to the Google SERP API, which can provide results for queries entered in the Google search engine. The results include many types, such as featured snippets, knowledge graphs, and images.
+## Why Use Search Engine on Ace Data Cloud
 
-This document will introduce the integration instructions for the Google SERP API.
+- Unified developer platform with one API key, billing system, and usage tracking
+- Production-ready AI API endpoints served from [https://api.acedata.cloud](https://api.acedata.cloud)
+- English integration guides, API references, and service documentation
+- Global-ready workflow for developers building chat, image, video, music, and search products
 
-### Application Process
+## Overview
 
-To use the Google SERP API, you need to first apply for the corresponding service on the [Google SERP API](https://platform.acedata.cloud/documents/44c86226-8eaa-49bf-85f3-1fae8d2e23f1) page. After entering the page, click the "Acquire" button, as shown in the image:
-
-![](https://cdn.acedata.cloud/q6ytrc.png)
-
-If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
-
-During the first application, there will be a free quota provided, allowing you to use the API for free.
-
-### Basic Usage
-
-First, understand the basic usage method, which is to input the type of search resource and keywords to obtain search results. You only need to simply pass the `query` field and specify the corresponding model.
-
-For example, to find information about "apple inc," we can fill in the corresponding content on the interface, as shown in the image:
-
-<p><img src="https://cdn.acedata.cloud/lnqiye.png" width="500" class="m-auto"></p>
-
-Here, we have set the Request Headers, including:
-
-- `accept`: the format of the response result you want to receive, filled in as `application/json`, which is in JSON format.
-- `authorization`: the key to call the API, which can be selected directly after application.
-
-Additionally, the Request Body is set, including:
-
-- `type`: the type of search resource, currently supporting only six types, with the default being `search`.
-- `query`: the search keyword.
-- `country`: the country where the search results are located, with the default being the United States (US).
-- `language`: the language of the search results, with the default being English (en).
-- `range`: the time range for the search results, with the default being unlimited.
-- `number`: the page size of the search results, with the default being 10.
-- `page`: the page number of the search results, with the default being 1.
-
-After selection, you can find that the corresponding code is also generated on the right side, as shown in the image:
-
-<p><img src="https://cdn.acedata.cloud/1j81zr.png" width="500" class="m-auto"></p>
-
-Click the "Try" button to test, as shown in the image above, and we have obtained the following results:
-```json
-{
-  "knowledge_graph": {
-    "title": "Apple",
-    "type": "Technology company",
-    "website": "http://www.apple.com/",
-    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5ITHsQzdzkkFWKinRe1Y4FUbC_Vy3R_M&s=0",
-    "description": "Apple Inc. is an American multinational corporation and technology company headquartered in Cupertino, California, in Silicon Valley. It is best known for its consumer electronics, software, and services.",
-    "description_source": "Wikipedia",
-    "description_link": "https://en.wikipedia.org/wiki/Apple_Inc.",
-    "attributes": {
-      "Customer service": "1 (800) 275-2273",
-      "Founders": "Steve Jobs, Steve Wozniak, and Ronald Wayne",
-      "Founded": "April 1, 1976, Los Altos, CA",
-      "Headquarters": "Cupertino, CA",
-      "CEO": "Tim Cook (Aug 24, 2011–)"
-    }
-  },
-  "organic": [
-    {
-      "title": "Apple",
-      "link": "https://www.apple.com/",
-      "snippet": "Discover the innovative world of Apple and shop everything iPhone, iPad, Apple Watch, Mac, and Apple TV, plus explore accessories, entertainment, ...",
-      "sitelinks": [
-        {
-          "title": "Support",
-          "link": "https://support.apple.com/"
-        },
-        {
-          "title": "Career Opportunities",
-          "link": "https://www.apple.com/careers/us/"
-        },
-        {
-          "title": "Business",
-          "link": "https://www.apple.com/business/"
-        },
-        {
-          "title": "Store",
-          "link": "https://www.apple.com/store"
-        },
-        {
-          "title": "Investor Relations",
-          "link": "https://investor.apple.com/investor-relations/default.aspx"
-        }
-      ],
-      "position": 1
-    },
-    {
-      "title": "Apple Inc. - Wikipedia",
-      "link": "https://en.wikipedia.org/wiki/Apple_Inc.",
-      "snippet": "Apple Inc. is an American multinational corporation and technology company headquartered in Cupertino, California, in Silicon Valley.",
-      "position": 2
-    },
-    {
-      "title": "Apple Inc. | History, Products, Headquarters, & Facts - Britannica",
-      "link": "https://www.britannica.com/money/Apple-Inc",
-      "snippet": "American manufacturer of personal computers, smartphones, and tablet computers. Apple was the first successful personal computer company and ...",
-      "date": "7 days ago",
-      "position": 3
-    },
-    {
-      "title": "Apple Inc. (AAPL) Company Profile & Facts - Yahoo Finance",
-      "link": "https://finance.yahoo.com/quote/AAPL/profile/",
-      "snippet": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. The company offers iPhone, a line ...",
-      "position": 4
-    },
-    {
-      "title": "AAPL: Apple Inc Stock Price Quote - NASDAQ GS - Bloomberg",
-      "link": "https://www.bloomberg.com/quote/AAPL:US",
-      "snippet": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables and accessories, and sells a variety of related accessories.",
-      "position": 5
-    },
-    {
-      "title": "Apple Inc. (AAPL) Stock Price Today - WSJ",
-      "link": "https://www.wsj.com/market-data/quotes/AAPL?gaa_at=eafs&gaa_n=ASWzDAiLDLUKmLSxoaZi5n84id-eGDp9gI99K5VU1R7pK3SzSi_PbdpD61P1&gaa_ts=685148c8&gaa_sig=mGk3lG_2W7ZqrXfXSXv7GAP78KUi_uJEadAXuv2bgYJ8Ah42GhIZxrsN4ynbNg_oKD_7NZS1lRPSglUNacIheQ%3D%3D",
-      "snippet": "Apple Inc. engages in the design, manufacture, and sale of smartphones, personal computers, tablets, wearables and accessories, and other varieties of related ...",
-      "position": 6
-    }
-  ],
-  "people_also_ask": [
-    {
-      "question": "What is the Apple Inc?",
-      "snippet": "Apple Inc., originally Apple Computer, Inc., is a multinational corporation that creates and markets consumer electronics and attendant computer software, and is a digital distributor of media content. Apple's core product lines are the iPhone smartphone, iPad tablet computer, and the Mac personal computer.",
-      "title": "History of Apple Inc. - Wikipedia",
-      "link": "https://en.wikipedia.org/wiki/History_of_Apple_Inc."
-    },
-    {
-      "question": "Who owns Apple Inc?",
-      "snippet": "Apple (AAPL) Ownership Overview The ownership structure of Apple (AAPL) stock is a mix of institutional, retail, and individual investors. Approximately 50.57% of the company's stock is owned by Institutional Investors, 0.06% is owned by Insiders, and 49.38% is owned by Public Companies and Individual Investors.",
-      "title": "Who owns Apple? AAPL Stock Ownership - TipRanks.com",
-      "link": "https://www.tipranks.com/stocks/aapl/ownership"
-    },
-    {
-      "question": "What is Apple Inc. best known for?",
-      "snippet": "It is best known for its consumer electronics, software, and services. Founded in 1976 as Apple Computer Company by Steve Jobs, Steve Wozniak and Ronald Wayne, the company was incorporated by Jobs and Wozniak as Apple Computer, Inc. the following year.",
-      "title": "Apple Inc. - Wikipedia",
-      "link": "https://en.wikipedia.org/wiki/Apple_Inc."
-    },
-    {
-      "question": "What is the meaning of Inc in Apple Inc?",
-      "snippet": "abbreviation for incorporated: used in the names of US companies that are legally established: Bishop Computer Services, Inc.",
-      "title": "Inc. | English meaning - Cambridge Dictionary",
-      "link": "https://dictionary.cambridge.org/dictionary/english/inc"
-    }
-  ],
-  "related_searches": [
-    {
-      "query": "Apple iPhone 13"
-    },
-    {
-      "query": "apple inc คืออะไร"
-    },
-    {
-      "query": "Apple Inc full form"
-    },
-    {
-      "query": "Apple Inc address"
-    },
-    {
-      "query": "Apple Inc industry"
-    },
-    {
-      "query": "Apple Inc investor relations"
-    },
-    {
-      "query": "Apple Inc Annual Report"
-    },
-    {
-      "query": "Apple Store"
-    }
-  ]
+<style>
+.serp-page * { box-sizing: border-box; }
+.serp-page h1, .serp-page h2, .serp-page h3, .serp-page h4, .serp-page h5, .serp-page h6, .serp-page p, .serp-page ul, .serp-page ol, .serp-page li, .serp-page pre, .serp-page blockquote, .serp-page table, .serp-page td, .serp-page th { margin: 0; padding: 0; }
+.serp-page {
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+color: var(--el-text-color-primary);
+background: var(--el-bg-color);
+line-height: 1.6;
 }
-```
+.serp-page a { text-decoration: none; color: inherit; }
+.serp-page a:hover { text-decoration: none; }
+.serp-page ul { list-style: none; }
+.markdown-body .serp-page a { color: inherit !important; text-decoration: none !important; }
+.markdown-body .serp-page a:hover { text-decoration: none !important; }
+.markdown-body .serp-page a.sp-btn-primary,
+.markdown-body .serp-page a.btn-cta-light { color: #ffffff !important; }
+.markdown-body .serp-page a.sp-btn-secondary { color: var(--el-text-color-primary) !important; }
+.markdown-body .serp-page a.btn-cta-ghost { color: #94a3b8 !important; }
+.markdown-body .serp-page a.btn-cta-ghost:hover { color: #e2e8f0 !important; }
+.markdown-body .serp-page h1, .markdown-body .serp-page h2 { border-bottom: none !important; padding-bottom: 0 !important; }
+.sp-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.sp-container-narrow { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+.sp-section { padding: 80px 0; }
+.sp-section-sm { padding: 48px 0; }
+.sp-bg-white { background: var(--el-bg-color); }
+.sp-bg-gray { background: var(--el-bg-color-page); }
+.sp-header { text-align: center; margin-bottom: 64px; }
+.sp-header h2 {
+font-size: clamp(28px, 4vw, 40px);
+font-weight: 700;
+color: var(--el-text-color-primary);
+letter-spacing: normal;
+margin-bottom: 20px;
+line-height: 1.15;
+}
+.sp-header p {
+font-size: clamp(16px, 2vw, 18px);
+color: var(--el-text-color-regular);
+max-width: 640px;
+margin: 0 auto;
+line-height: 1.6;
+}
+.serp-page .sp-btn-primary {
+display: inline-flex; align-items: center; gap: 6px;
+padding: 14px 28px;
+background: #2563eb; color: #ffffff !important;
+border-radius: 9999px; font-size: 15px; font-weight: 600;
+transition: background 0.2s, transform 0.15s;
+border: none; cursor: pointer;
+text-decoration: none !important;
+}
+.serp-page .sp-btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); text-decoration: none !important; }
+.serp-page .sp-btn-secondary {
+display: inline-flex; align-items: center; gap: 6px;
+padding: 14px 28px;
+background: var(--el-bg-color); color: var(--el-text-color-primary) !important;
+border: 1px solid var(--el-border-color-light);
+border-radius: 9999px; font-size: 15px; font-weight: 600;
+transition: border-color 0.2s, background 0.2s;
+cursor: pointer;
+text-decoration: none !important;
+}
+.serp-page .sp-btn-secondary:hover { background: var(--el-bg-color-page); text-decoration: none !important; }
+.serp-hero {
+padding: 100px 0 80px;
+text-align: center;
+background: var(--el-bg-color);
+position: relative;
+overflow: hidden;
+}
+.serp-hero::before {
+content: '';
+position: absolute;
+top: -200px; left: 50%;
+transform: translateX(-50%);
+width: 900px; height: 500px;
+background: radial-gradient(ellipse, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
+pointer-events: none;
+}
+.sp-badge {
+display: inline-flex; align-items: center; gap: 8px;
+padding: 6px 16px;
+background: var(--el-bg-color-page); border: 1px solid var(--el-border-color-light);
+border-radius: 9999px; font-size: 13px; font-weight: 600; color: var(--el-text-color-regular);
+margin-bottom: 28px;
+}
+.sp-badge-dot {
+width: 6px; height: 6px; background: #10b981; border-radius: 50%;
+display: inline-block;
+}
+.serp-hero h1 {
+font-size: clamp(36px, 5vw, 60px);
+line-height: 1.08;
+letter-spacing: normal;
+margin-bottom: 18px;
+font-weight: 700;
+}
+.serp-hero h1 .sp-brand { color: #2563eb; }
+.serp-hero h1 .sp-sub { color: var(--el-text-color-primary); }
+.serp-page .hero-subtitle {
+max-width: 680px;
+margin: 0 auto;
+font-size: clamp(16px, 2.1vw, 20px);
+color: var(--el-text-color-regular);
+line-height: 1.6;
+}
+.sp-actions {
+margin-top: 56px;
+display: flex; gap: 12px;
+justify-content: center;
+flex-wrap: wrap;
+}
+.sp-highlights {
+display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+margin-top: 40px;
+}
+.sp-highlights .h-item { font-size: 13px; color: var(--el-text-color-regular); display: flex; align-items: center; gap: 6px; }
+.sp-highlights .h-div { width: 1px; height: 14px; background: var(--el-border-color-light); }
+.sp-stats {
+display: grid !important;
+grid-template-columns: repeat(4, 1fr) !important;
+gap: 20px !important;
+}
+.sp-stat {
+background: var(--el-bg-color);
+border: 1px solid var(--el-border-color-light);
+border-radius: 16px;
+padding: 24px 16px;
+text-align: center;
+}
+.sp-stat-val {
+font-size: clamp(28px, 4vw, 38px);
+font-weight: 700;
+color: var(--el-text-color-primary);
+line-height: 1.1;
+}
+.sp-stat-lbl { margin-top: 8px; font-size: 13px; color: var(--el-text-color-regular); }
+.sp-feat-grid {
+display: grid !important;
+grid-template-columns: repeat(2, 1fr) !important;
+gap: 20px !important;
+}
+.sp-feat-card {
+background: var(--el-bg-color);
+border: 1px solid var(--el-border-color-light);
+border-radius: 16px;
+padding: 28px 24px;
+transition: border-color 0.2s;
+}
+.sp-feat-card:hover { border-color: var(--el-text-color-regular); }
+.sp-feat-card h3 { font-size: 18px; font-weight: 700; color: var(--el-text-color-primary); margin-bottom: 8px; }
+.sp-feat-card p { font-size: 15px; color: var(--el-text-color-regular); line-height: 1.6; }
+.sp-feat-icon { font-size: 28px; margin-bottom: 12px; }
+.sp-code-wrap {
+border-radius: 16px !important;
+overflow: hidden !important;
+border: 1px solid #334155 !important;
+background: #0f172a !important;
+}
+.markdown-body .serp-page .sp-code-wrap { background: #0f172a !important; }
+.sp-code-head {
+padding: 10px 16px;
+background: #1e293b;
+border-bottom: 1px solid #334155;
+color: #cbd5e1;
+font-size: 12px;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+}
+.sp-code
+{
+margin: 0 !important;
+padding: 18px !important;
+white-space: pre !important;
+overflow-x: auto !important;
+font-family: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', monospace !important;
+font-size: 13px !important;
+line-height: 1.7 !important;
+color: #e2e8f0 !important;
+background: transparent !important;
+border: none !important;
+}
+.markdown-body .serp-page .sp-code { background: transparent !important; }
+.sp-code-grid {
+display: grid !important;
+grid-template-columns: 1fr 1fr !important;
+gap: 0 !important;
+align-items: stretch;
+}
+.sp-code-left {
+display: flex; flex-direction: column; justify-content: center;
+padding: 0 40px 0 0;
+}
+.sp-code-left h2 {
+font-size: clamp(24px, 3.2vw, 34px);
+font-weight: 700;
+color: var(--el-text-color-primary);
+margin-bottom: 16px;
+}
+.sp-code-left > p {
+font-size: 16px; color: var(--el-text-color-regular); line-height: 1.6;
+}
+.sp-steps {
+display: grid !important;
+grid-template-columns: repeat(3, 1fr) !important;
+gap: 0 !important;
+position: relative;
+}
+.sp-step { text-align: center; padding: 0 24px; }
+.sp-step-num {
+width: 44px; height: 44px;
+border-radius: 50%;
+background: var(--el-bg-color-page);
+border: 2px solid var(--el-border-color-light);
+display: inline-flex; align-items: center; justify-content: center;
+font-size: 16px; font-weight: 700; color: var(--el-text-color-regular);
+margin-bottom: 16px;
+}
+.sp-step h3 { font-size: 17px; font-weight: 700; color: var(--el-text-color-primary); margin-bottom: 8px; }
+.sp-step p { font-size: 14px; color: var(--el-text-color-regular); line-height: 1.6; }
+.sp-step-conn {
+position: absolute;
+top: 22px;
+height: 2px;
+background: var(--el-border-color-light);
+}
+.sp-step-conn-1 { left: calc(100% / 6); right: calc(100% / 6 * 3); }
+.sp-step-conn-2 { left: calc(100% / 6 * 3); right: calc(100% / 6); }
+.sp-uc-grid {
+display: grid !important;
+grid-template-columns: repeat(3, 1fr) !important;
+gap: 20px !important;
+}
+.sp-uc-card {
+background: var(--el-bg-color);
+border: 1px solid var(--el-border-color-light);
+border-radius: 16px;
+padding: 24px;
+transition: border-color 0.2s;
+}
+.sp-uc-card:hover { border-color: var(--el-text-color-regular); }
+.sp-uc-icon { font-size: 28px; margin-bottom: 10px; }
+.sp-uc-card h3 { font-size: 16px; font-weight: 700; color: var(--el-text-color-primary); margin-bottom: 6px; }
+.sp-uc-card p { font-size: 14px; color: var(--el-text-color-regular); line-height: 1.5; }
+.sp-param-grid {
+display: grid !important;
+grid-template-columns: repeat(3, 1fr) !important;
+gap: 20px !important;
+}
+.sp-param-card {
+background: var(--el-bg-color);
+border: 1px solid var(--el-border-color-light);
+border-radius: 16px;
+padding: 24px;
+}
+.sp-param-card h3 { font-size: 16px; font-weight: 700; color: var(--el-text-color-primary); margin-bottom: 4px; }
+.serp-page .sp-param-card .param-desc { font-size: 14px; color: var(--el-text-color-regular); line-height: 1.5; }
+.sp-param-val {
+display: inline-block;
+padding: 2px 8px;
+background: var(--el-bg-color-page);
+border-radius: 6px;
+font-size: 12px;
+color: var(--el-text-color-regular);
+font-family: 'JetBrains Mono', monospace;
+margin-bottom: 8px;
+}
+.sp-price-table-wrap {
+max-width: 640px;
+margin: 0 auto;
+border-radius: 16px;
+overflow: hidden;
+border: 1px solid var(--el-border-color-light);
+}
+.sp-price-table {
+display: table !important;
+width: 100% !important;
+border-collapse: collapse !important;
+}
+.sp-price-table th {
+padding: 14px 20px !important;
+background: var(--el-bg-color-page) !important;
+font-size: 13px !important;
+font-weight: 700 !important;
+color: var(--el-text-color-regular) !important;
+text-transform: uppercase !important;
+letter-spacing: 0.06em !important;
+text-align: left !important;
+border: none !important;
+border-bottom: 1px solid var(--el-border-color-light) !important;
+}
+.sp-price-table td {
+padding: 14px 20px !important;
+font-size: 15px !important;
+color: var(--el-text-color-primary) !important;
+border: none !important;
+border-bottom: 1px solid var(--el-border-color-lighter) !important;
+background: var(--el-bg-color) !important;
+}
+.sp-price-table tr:last-child td { border-bottom: none !important; }
+.sp-price-table .td-price {
+color: #2563eb !important;
+font-weight: 700 !important;
+font-family: 'JetBrains Mono', monospace !important;
+}
+.sp-price-note {
+text-align: center;
+font-size: 13px;
+color: var(--el-text-color-regular);
+margin-top: 16px;
+}
+.sp-faq-list { max-width: 800px; margin: 0 auto; }
+.sp-faq-item { border-bottom: 1px solid var(--el-border-color-lighter); }
+.sp-faq-q {
+display: flex; justify-content: space-between; align-items: center;
+padding: 20px 0; cursor: pointer;
+font-size: 16px; font-weight: 600; color: var(--el-text-color-primary);
+transition: color 0.2s;
+}
+.sp-faq-q:hover { color: #2563eb; }
+.sp-faq-chev { font-size: 18px; color: var(--el-text-color-regular); transition: transform 0.2s; }
+.sp-faq-a { display: none; padding: 0 0 20px; }
+.sp-faq-a p { font-size: 15px; color: var(--el-text-color-regular); line-height: 1.7; }
+.sp-rel-grid {
+display: grid !important;
+grid-template-columns: repeat(4, 1fr) !important;
+gap: 16px !important;
+}
+.sp-rel-card {
+display: flex; align-items: center; gap: 14px;
+background: var(--el-bg-color);
+border: 1px solid var(--el-border-color-light);
+border-radius: 14px;
+padding: 16px 18px;
+transition: border-color 0.2s;
+}
+.sp-rel-card:hover { border-color: var(--el-text-color-regular); }
+.sp-rel-icon { font-size: 28px; flex-shrink: 0; }
+.sp-rel-info h3 { font-size: 15px; font-weight: 700; color: var(--el-text-color-primary); }
+.sp-rel-info p { font-size: 12px; color: var(--el-text-color-regular); margin-top: 2px; }
+.sp-rel-arrow { margin-left: auto; font-size: 16px; color: var(--el-border-color); transition: color 0.2s; }
+.sp-rel-card:hover .sp-rel-arrow { color: var(--el-text-color-regular); }
+.serp-cta {
+text-align: center;
+background: #0f172a;
+color: #f8fafc;
+padding: 80px 0;
+position: relative;
+overflow: hidden;
+}
+.serp-cta::before
+{
+content: '';
+position: absolute;
+top: -100px; left: 50%;
+transform: translateX(-50%);
+width: 600px; height: 400px;
+background: radial-gradient(ellipse, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+pointer-events: none;
+}
+.serp-cta h2 {
+font-size: clamp(30px, 4.2vw, 46px);
+font-weight: 700;
+letter-spacing: normal;
+margin-bottom: 28px;
+position: relative;
+}
+.serp-cta p {
+font-size: 17px;
+color: #cbd5e1;
+max-width: 600px;
+margin: 0 auto 56px;
+position: relative;
+}
+.serp-cta .sp-actions { position: relative; margin-top: 0; }
+.serp-page .btn-cta-light {
+display: inline-flex; align-items: center; gap: 6px;
+padding: 14px 28px;
+background: #2563eb; color: #ffffff !important;
+border-radius: 9999px; font-size: 15px; font-weight: 600;
+transition: background 0.2s;
+text-decoration: none !important;
+}
+.serp-page .btn-cta-light:hover { background: #1d4ed8; }
+.serp-page .btn-cta-ghost {
+display: inline-flex; align-items: center; gap: 6px;
+padding: 14px 28px;
+background: transparent; color: #94a3b8 !important;
+border: 1px solid #475569;
+border-radius: 9999px; font-size: 15px; font-weight: 600;
+transition: border-color 0.2s, color 0.2s;
+text-decoration: none !important;
+}
+.serp-page .btn-cta-ghost:hover { border-color: #94a3b8; color: #e2e8f0 !important; }
+.serp-page code
+{
+background: #eff6ff !important; color: #2563eb !important;
+border: 1px solid #bfdbfe !important;
+padding: 2px 6px !important; border-radius: 4px !important;
+font-size: 0.88em !important; font-weight: 600 !important;
+}
+html.dark .serp-page { background: var(--el-bg-color); color: var(--el-text-color-primary); }
+html.dark .markdown-body .serp-page a { color: inherit !important; }
+html.dark .markdown-body .serp-page a.sp-btn-primary,
+html.dark .markdown-body .serp-page a.btn-cta-light { color: #ffffff !important; }
+html.dark .markdown-body .serp-page a.sp-btn-secondary { color: var(--el-text-color-primary) !important; }
+html.dark .markdown-body .serp-page a.btn-cta-ghost { color: #94a3b8 !important; }
+html.dark .markdown-body .serp-page a.btn-cta-ghost:hover { color: var(--el-text-color-primary) !important; }
+html.dark .sp-bg-white { background: var(--el-bg-color); }
+html.dark .sp-bg-gray { background: var(--el-bg-color-page); }
+html.dark .sp-header h2 { color: var(--el-text-color-primary); }
+html.dark .sp-header p { color: var(--el-text-color-secondary); }
+html.dark .serp-page .sp-btn-primary { background: #2563eb; }
+html.dark .serp-page .sp-btn-primary:hover { background: #1d4ed8; }
+html.dark .serp-page .sp-btn-secondary { background: #1e293b; color: var(--el-text-color-primary) !important; border-color: #475569; }
+html.dark .serp-page .sp-btn-secondary:hover { background: var(--el-border-color); border-color: var(--el-text-color-regular); }
+html.dark .serp-hero { background: var(--el-bg-color); }
+html.dark .serp-hero::before { background: radial-gradient(ellipse, rgba(37, 99, 235, 0.15) 0%, transparent 70%); }
+html.dark .sp-badge { background: var(--el-bg-color-page); border-color: var(--el-border-color); color: var(--el-text-color-secondary); }
+html.dark .serp-hero h1 .sp-brand { color: #60a5fa; }
+html.dark .serp-hero h1 .sp-sub { color: var(--el-text-color-primary); }
+html.dark .serp-page .hero-subtitle { color: var(--el-text-color-secondary); }
+html.dark .sp-highlights .h-item { color: var(--el-text-color-secondary); }
+html.dark .sp-highlights .h-div { background: var(--el-border-color); }
+html.dark .sp-stat { background: var(--el-bg-color-page); border-color: var(--el-border-color); box-shadow: none; }
+html.dark .sp-stat-val { color: var(--el-text-color-primary); }
+html.dark .sp-stat-lbl { color: var(--el-text-color-regular); }
+html.dark .sp-feat-card { background: var(--el-bg-color-page); border-color: var(--el-border-color); }
+html.dark .sp-feat-card:hover { border-color: var(--el-text-color-regular); }
+html.dark .sp-feat-card h3 { color: var(--el-text-color-primary); }
+html.dark .sp-feat-card p { color: var(--el-text-color-secondary); }
+html.dark .sp-code-left h2 { color: var(--el-text-color-primary); }
+html.dark .sp-code-left > p { color: var(--el-text-color-secondary); }
+html.dark .sp-step-num { background: var(--el-border-color); border-color: var(--el-text-color-regular); color: var(--el-text-color-secondary); }
+html.dark .sp-step h3 { color: var(--el-text-color-primary); }
+html.dark .sp-step p { color: var(--el-text-color-regular); }
+html.dark .sp-step-conn { background: var(--el-border-color); }
+html.dark .sp-uc-card { background: var(--el-bg-color-page); border-color: var(--el-border-color); }
+html.dark .sp-uc-card:hover { border-color: var(--el-text-color-regular); }
+html.dark .sp-uc-card h3 { color: var(--el-text-color-primary); }
+html.dark .sp-uc-card p { color: var(--el-text-color-secondary); }
+html.dark .sp-param-card { background: var(--el-bg-color-page); border-color: var(--el-border-color); }
+html.dark .sp-param-card h3 { color: var(--el-text-color-primary); }
+html.dark .serp-page .sp-param-card .param-desc { color: var(--el-text-color-secondary); }
+html.dark .sp-param-val { background: var(--el-border-color); color: var(--el-text-color-secondary); }
+html.dark .sp-price-table-wrap { border-color: var(--el-border-color); }
+html.dark .sp-price-table th { background: var(--el-bg-color-page) !important; color: var(--el-text-color-secondary) !important; border-bottom-color: var(--el-border-color) !important; }
+html.dark .sp-price-table td { color: var(--el-text-color-primary) !important; border-bottom-color: var(--el-border-color) !important; background: var(--el-bg-color) !important; }
+html.dark .sp-price-table .td-price { color: #60a5fa !important; }
+html.dark .sp-price-note { color: var(--el-text-color-secondary); }
+html.dark .sp-faq-item { border-color: var(--el-border-color); }
+html.dark .sp-faq-q { color: var(--el-text-color-primary); }
+html.dark .sp-faq-q:hover { color: #60a5fa; }
+html.dark .sp-faq-chev { color: var(--el-text-color-regular); }
+html.dark .sp-faq-a p { color: var(--el-text-color-secondary); }
+html.dark .sp-rel-card { background: var(--el-bg-color-page); border-color: var(--el-border-color); }
+html.dark .sp-rel-card:hover { border-color: var(--el-text-color-regular); }
+html.dark .sp-rel-info h3 { color: var(--el-text-color-primary); }
+html.dark .sp-rel-info p { color: var(--el-text-color-regular); }
+html.dark .sp-rel-arrow { color: var(--el-text-color-regular); }
+html.dark .serp-cta { background: #020617; }
+html.dark .serp-cta::before { background: radial-gradient(ellipse, rgba(37, 99, 235, 0.2) 0%, transparent 70%); }
+html.dark .serp-page .btn-cta-light { color: #ffffff !important; }
+html.dark .serp-page .btn-cta-ghost { color: #94a3b8 !important; }
+html.dark .serp-page .btn-cta-ghost:hover { color: var(--el-text-color-primary) !important; }
+html.dark .serp-page code { background: #1e3a5f !important; color: #93c5fd !important; border-color: #3b82f6 !important; }
+@media (max-width: 980px) {
+.sp-stats { grid-template-columns: repeat(2, 1fr) !important; }
+.sp-feat-grid { grid-template-columns: 1fr !important; }
+.sp-code-grid { grid-template-columns: 1fr !important; }
+.sp-code-left { padding: 0 0 32px 0; }
+.sp-steps { grid-template-columns: 1fr !important; gap: 24px !important; }
+.sp-step-conn { display: none; }
+.sp-uc-grid { grid-template-columns: 1fr !important; }
+.sp-param-grid { grid-template-columns: 1fr !important; }
+.sp-rel-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 480px) {
+.sp-stats { grid-template-columns: 1fr !important; }
+.sp-rel-grid { grid-template-columns: 1fr !important; }
+}
+</style>
+<div class="serp-page">
+<section class="serp-hero">
+<div class="sp-container">
+<div class="sp-badge"><span class="sp-badge-dot"></span>Search Engine · Results Page</div>
+<h1><span class="sp-brand">SERP</span> <span class="sp-sub">Search Engine API</span></h1>
+<p class="hero-subtitle">Get Google search results through a simple RESTful API. Supports web search, image search, news search—charged by the number of requests, starting at $0.00095.</p>
+<div class="sp-actions">
+<a class="sp-btn-primary" href="/apis/serp-google">📄 View Documentation</a>
+<a class="sp-btn-secondary" href="/apis/serp-google">🔍 API Reference</a>
+</div>
+<div class="sp-highlights">
+<span class="h-item">🌐 Google Search</span>
+<span class="h-div"></span>
+<span class="h-item">🖼️ Image Search</span>
+<span class="h-div"></span>
+<span class="h-item">📰 News Search</span>
+<span class="h-div"></span>
+<span class="h-item">💰 $0.00095 / request starting</span>
+</div>
+</div>
+</section>
+<section class="sp-section-sm sp-bg-gray">
+<div class="sp-container">
+<div class="sp-stats">
+<div class="sp-stat"><div class="sp-stat-val">$0.00095</div><div class="sp-stat-lbl">Starting price per search</div></div>
+<div class="sp-stat"><div class="sp-stat-val">100+</div><div class="sp-stat-lbl">Supported countries/regions</div></div>
+<div class="sp-stat"><div class="sp-stat-val">Real-time</div><div class="sp-stat-lbl">Result data</div></div>
+<div class="sp-stat"><div class="sp-stat-val">JSON</div><div class="sp-stat-lbl">Structured response</div></div>
+</div>
+</div>
+</section>
+<section class="sp-section sp-bg-white">
+<div class="sp-container">
+<div class="sp-header">
+<h2>Core Features</h2>
+<p>One API to get all search results from Google Search Engine</p>
+</div>
+<div class="sp-feat-grid">
+<div class="sp-feat-card">
+<div class="sp-feat-icon">🌐</div>
+<h3>Web Search</h3>
+<p>Get Google web search results, including complete information such as title, summary, link, etc., supporting pagination and custom result counts.</p>
+</div>
+<div class="sp-feat-card">
+<div class="sp-feat-icon">🖼️</div>
+<h3>Image Search</h3>
+<p>Search Google images, returning structured data such as image URLs, thumbnails, and sources for image collection and analysis.</p>
+</div>
+<div class="sp-feat-card">
+<div class="sp-feat-icon">📰</div>
+<h3>News Search</h3>
+<p>Get Google news results, tracking hot events in real-time, suitable for news aggregation applications.</p>
+</div>
+<div class="sp-feat-card">
+<div class="sp-feat-icon">🌍</div>
+<h3>Multilingual and Multiregional</h3>
+<p>Specify the country and language for search using <code>gl</code> and <code>hl</code> parameters to get localized search results.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="sp-section sp-bg-gray">
+<div class="sp-container">
+<div class="sp-code-grid">
+<div class="sp-code-left">
+<h2>Get search results in one line of code</h2>
+<p>Concise RESTful API design, structured Google search data can be obtained with a GET request.</p>
+</div>
+<div>
+<div class="sp-code-wrap">
+<div class="sp-code-head">Python</div>
+<pre class="sp-code">import requests
+ 
 
-The returned result contains multiple fields, described as follows:
-
-- `knowledge_graph`, the knowledge graph of the search result.
-- `organic`, detailed information of the search result.
-- `people_also_ask`, questions related to the search keyword.
-- `related_searches`, related searches for the search keyword.
-
-It can be seen that there is an `organic` field in the returned result, which mainly contains the results of the search keyword.
-
-Additionally, if you want to generate the corresponding interface code, you can directly copy the generated code, for example, the CURL code is as follows:
-
-```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
--H 'accept: application/json' \
--H 'authorization: Bearer {token}' \
--H 'content-type: application/json' \
--d '{
-  "query": "apple inc"
-}'
-```
-
-The Python interface code is as follows:
-
+response = requests.get(
+"https://api.acedata.cloud/serp/google",
+headers={
+"Authorization": "Bearer YOUR_API_KEY"
+},
+params={
+"q": "artificial intelligence",
+"number": 10,
+"gl": "us",
+"hl": "en"
+}
+)
 ```python
-import requests
+data = response.json()
+for result in data["results"]:
+    print(result["title"], result["link"])
+```
+</pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="sp-section sp-bg-white">
+<div class="sp-container">
+<div class="sp-header">
+<h2>3 Steps to Get Started Quickly</h2>
+<p>It only takes a few minutes from registration to getting your first search result.</p>
+</div>
+<div class="sp-steps">
+<div class="sp-step-conn sp-step-conn-1"></div>
+<div class="sp-step-conn sp-step-conn-2"></div>
+<div class="sp-step">
+<div class="sp-step-num">1</div>
+<h3>Get API Key</h3>
+<p>Register and generate an API key from the console.</p>
+</div>
+<div class="sp-step">
+<div class="sp-step-num">2</div>
+<h3>Build Search Request</h3>
+<p>Set parameters such as keywords, language, number of results, etc.</p>
+</div>
+<div class="sp-step">
+<div class="sp-step-num">3</div>
+<h3>Get Results</h3>
+<p>Send a GET request to obtain search results in JSON format.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="sp-section sp-bg-gray">
+<div class="sp-container">
+<div class="sp-header">
+<h2>What is SERP API Suitable For?</h2>
+<p>Covers various application scenarios for search engine data</p>
+</div>
+<div class="sp-uc-grid">
+<div class="sp-uc-card">
+<div class="sp-uc-icon">📊</div>
+<h3>SEO Monitoring</h3>
+<p>Track keyword ranking changes and analyze competitors' search performance.</p>
+</div>
+<div class="sp-uc-card">
+<div class="sp-uc-icon">🤖</div>
+<h3>AI Agent Tools</h3>
+<p>Provide real-time search capabilities for LLM Agents to obtain the latest internet information.</p>
+</div>
+<div class="sp-uc-card">
+<div class="sp-uc-icon">📰</div>
+<h3>Public Opinion Monitoring</h3>
+<p>Monitor brand-related news and changes in search results in real-time.</p>
+</div>
+<div class="sp-uc-card">
+<div class="sp-uc-icon">📈</div>
+<h3>Market Research</h3>
+<p>Bulk obtain industry-related search data to assist in market analysis decisions.</p>
+</div>
+<div class="sp-uc-card">
+<div class="sp-uc-icon">🔬</div>
+<h3>Academic Research</h3>
+<p>Large-scale search data collection for academic research and paper writing.</p>
+</div>
+<div class="sp-uc-card">
+<div class="sp-uc-icon">🛍️</div>
+<h3>Price Comparison</h3>
+<p>Search and compare product prices across platforms to build a price comparison tool.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="sp-section sp-bg-white">
+<div class="sp-container">
+<div class="sp-header">
+<h2>Core Parameters</h2>
+<p>Flexibly customize search requests and precisely control output</p>
+</div>
+<div class="sp-param-grid">
+<div class="sp-param-card">
+<div class="sp-param-val">q</div>
+<h3>Search Keywords</h3>
+<p class="param-desc">The keywords or query statements to search for, supporting Google search syntax.</p>
+</div>
+<div class="sp-param-card">
+<div class="sp-param-val">number</div>
+<h3>Number of Results</h3>
+<p class="param-desc">The number of search results to return, affecting billing tiers (≤10 or >10).</p>
+</div>
+<div class="sp-param-card">
+<div class="sp-param-val">gl</div>
+<h3>Country/Region</h3>
+<p class="param-desc">Specify the target country for the search (e.g., <code>us</code>, <code>cn</code>, <code>jp</code>) to get localized results.</p>
+</div>
+<div class="sp-param-card">
+<div class="sp-param-val">hl</div>
+<h3>Language</h3>
+<p class="param-desc">Specify the language of the search results (e.g., <code>en</code>, <code>zh-CN</code>, <code>ja</code>).</p>
+</div>
+<div class="sp-param-card">
+<div class="sp-param-val">type</div>
+<h3>Search Type</h3>
+<p class="param-desc">Search types: web (search), images (images), news (news), etc.</p>
+</div>
+<div class="sp-param-card">
+<div class="sp-param-val">start</div>
+<h3>Starting Position</h3>
+<p class="param-desc">The offset of search results, used for pagination to get more results.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="sp-section sp-bg-gray">
+<div class="sp-container">
+<div class="sp-header">
+<h2>SERP API Pricing</h2>
+<p>Charged by the number of requests, simple and transparent.</p>
+</div>
+<div class="sp-price-table-wrap">
+<table class="sp-price-table">
+<thead>
+<tr>
+<th>Request Type</th>
+<th>Number of Results</th>
+<th>Price per Request</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Google Search</td>
+<td>≤ 10 results</td>
+<td class="td-price">$0.00095</td>
+</tr>
+<tr>
+<td>Google Search</td>
+<td>> 10 results</td>
+<td class="td-price">$0.0019</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="sp-price-note">💡 Charged per request, no monthly fees, no hidden charges. Bulk purchases can enjoy additional discounts.</p>
+</div>
+</section>
+<section class="sp-section sp-bg-white">
+<div class="sp-container-narrow">
+<div class="sp-header">
+<h2>Frequently Asked Questions</h2>
+<p>Common questions about using the SERP API</p>
+</div>
+<div class="sp-faq-list">
+<div class="sp-faq-item">
+<div class="sp-faq-q"><span>Is the data returned by the SERP API real-time?</span><span class="sp-faq-chev">›</span></div>
+<div class="sp-faq-a"><p>Yes, each request queries the Google search engine in real-time and returns the latest results, not cached data.</p></div>
+</div>
+<div class="sp-faq-item">
+<div class="sp-faq-q"><span>What search types are supported?</span><span class="sp-faq-chev">›</span></div>
+<div class="sp-faq-a"><p>Supports various types such as web search (search), image search (images), news search (news), etc., switched via the <code>type</code> parameter.</p></div>
+</div>
+<div class="sp-faq-item">
+<div class="sp-faq-q"><span>How to get more search results?</span><span class="sp-faq-chev">›</span></div>
+<div class="sp-faq-a"><p>Use the <code>number</code> parameter to control the number of results returned each time, combined with the <code>start</code> parameter for pagination to obtain a large number of search results.</p></div>
+</div>
+<div class="sp-faq-item">
+<div class="sp-faq-q"><span>Can I search for results from specific countries/languages?</span><span class="sp-faq-chev">›</span></div>
+<div class="sp-faq-a"><p>Yes. Specify the country for the search using the <code>gl</code> parameter (e.g., <code>us</code>), and the result language using the <code>hl</code> parameter (e.g., <code>en</code>) to accurately locate the results you need.</p></div>
+</div>
+<div class="sp-faq-item">
+<div class="sp-faq-q"><span>Is it suitable for use with AI Agents?</span><span class="sp-faq-chev">›</span></div>
+<div class="sp-faq-a"><p>Very suitable. The SERP API returns structured JSON data, which can be directly used as a tool for LLM Agents. Ace Data Cloud also provides an MCP Server wrapper that can be directly called in AI like Claude, ChatGPT, etc.</p></div>
+</div>
+</div>
+</div>
+</section>
+<section class="sp-section sp-bg-gray">
+<div class="sp-container">
+<div class="sp-header">
+<h2>Explore More AI Services</h2>
+<p>Ace Data Cloud offers various AI service APIs</p>
+</div>
+<div class="sp-rel-grid">
+<a class="sp-rel-card" href="/services/claude">
+<span class="sp-rel-icon">🟠</span>
+<div class="sp-rel-info"><h3>Claude</h3><p>Anthropic AI</p></div>
+<span class="sp-rel-arrow">→</span>
+</a>
+<a class="sp-rel-card" href="/services/gemini">
+<span class="sp-rel-icon">💎</span>
+<div class="sp-rel-info"><h3>Gemini</h3><p>Google AI</p></div>
+<span class="sp-rel-arrow">→</span>
+</a>
+<a class="sp-rel-card" href="/services/midjourney">
+<span class="sp-rel-icon">🎨</span>
+<div class="sp-rel-info"><h3>Midjourney</h3><p>AI Painting</p></div>
+<span class="sp-rel-arrow">→</span>
+</a>
+<a class="sp-rel-card" href="/services/suno">
+<span class="sp-rel-icon">🎵</span>
+<div class="sp-rel-info"><h3>Suno</h3><p>AI Music</p></div>
+<span class="sp-rel-arrow">→</span>
+</a>
+</div>
+</div>
+</section>
+<section class="serp-cta">
+<div class="sp-container">
+<h2>Start Using SERP API Now</h2>
+<p>Efficiently obtain Google search results to empower your applications.</p>
+<div class="sp-actions">
+<a class="btn-cta-light" href="/apis/serp-google">Get Started →</a>
+<a class="btn-cta-ghost" href="/support">Contact Support</a>
+</div>
+</div>
+</section>
+</div>
 
-url = "https://api.acedata.cloud/serp/google"
+## Quick Start
 
-headers = {
-    "accept": "application/json",
-    "authorization": "Bearer {token}",
-    "content-type": "application/json"
-}
+- Base URL: [https://api.acedata.cloud](https://api.acedata.cloud)
+- Service page: [Search Engine on Ace Data Cloud](https://platform.acedata.cloud/service/serp)
+- Docs: [Developer documentation](https://docs.acedata.cloud)
 
-payload = {
-    "query": "apple inc"
-}
-
-response = requests.post(url, json=payload, headers=headers)
-print(response.text)
+```bash
+curl --request POST "https://api.acedata.cloud/serp/google" \
+  --header "Authorization: Bearer YOUR_API_KEY" \
+  --header "Content-Type: application/json" \
+  --data '{}'
 ```
 
-### Custom Search Type
+## APIs and Guides
 
-If you customize the type of search resource, we can modify the parameter `type`, which includes ordinary resources `search`, image resources `images`, news resources `news`, map resources `maps`, regional resources `places`, and video resources `videos`. This article will demonstrate with the video resource `videos`.
-
-Now let's demonstrate the specific operation.
-
-First, set the `type` parameter to `videos`, and normally pass the `query` parameter, as shown:
-<p><img src="https://cdn.acedata.cloud/czlt12.png" width="500" class="m-auto"></p>
-
-The corresponding code is as follows:
-
-```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
--H 'accept: application/json' \
--H 'authorization: Bearer {token}' \
--H 'content-type: application/json' \
--d '{
-  "type": "videos",
-  "query": "apple inc"
-}'
-```
-
-You can get the following response:
-
-```json
-{
-  "videos": [
-    {
-      "title": "Healthcare",
-      "link": "https://www.apple.com/healthcare/",
-      "snippet": "More ways to shop: Find an Apple Store or other retailer near you. Or call 1-800-MY-APPLE (1-800-692-7753). United States. Copyright © 2025 Apple Inc. All ...",
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQzUYLXB37srVLPW8JbVzhIlP9-SxMe3A8M98Eb7362as4&s",
-      "source": "Apple",
-      "date": "Apr 16, 2025",
-      "position": 1
-    },
-    {
-      "title": "Apple",
-      "link": "https://www.youtube.com/apple",
-      "snippet": "Our first ever spatial computer. · A Gift for Mom | Shot on iPhone in Spatial Video | Experienced on Apple Vision Pro · Metallica — Official Trailer | Apple ...",
-      "position": 2
-    },
-    {
-      "title": "Is Apple FINALLY taking risks again?",
-      "link": "https://www.youtube.com/watch?v=JNZV9i5BwH0",
-      "snippet": "Taking into account how Microsoft did , and continue to struggle I will said moving the Mac to ARM was a \"killed the company if we fail\" kind of ...",
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0zvbxg3ozbeHNUJojmyRBhi3J-TviJQRinIS4DZiF-EM8&s",
-      "video_url": "https://encrypted-vtbn0.gstatic.com/video?q=tbn:ANd9GcTfNZRuifDZb4zgj0d6wDxoHLI8yUr-8SIPNw",
-      "duration": "13:04",
-      "source": "YouTube",
-      "channel": "Luke Miani",
-      "date": "2 days ago",
-      "position": 3
-    },
-    {
-      "title": "What Apple Didn't Talk About At WWDC 25 & Why It Matters!",
-      "link": "https://www.youtube.com/watch?v=2LTc3mzNh08",
-      "snippet": "I'm slowly unfollowing YouTubers that create rage bait videos to follow the hate trend. Apple is far from perfect but these subjects have ...",
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgGUJwgxdH-WHBmGOk6XgvijwnYX2H_D2Cl23aNab8CKyT&s",
-      "video_url": "https://encrypted-vtbn0.gstatic.com/video?q=tbn:ANd9GcRTtYLkgIrCxERepA5KmCJDbZ7lTUa0OBHqzw",
-      "duration": "13:05",
-      "source": "YouTube",
-      "channel": "Brian Tong",
-      "date": "7 hours ago",
-      "position": 4
-    },
-    {
-      "title": "Apple",
-      "link": "https://www.youtube.com/user/Apple",
-      "snippet": "Our first ever spatial computer. · A Gift for Mom | Shot on iPhone in Spatial Video | Experienced on Apple Vision Pro · Metallica — Official Trailer | Apple ...",
-      "position": 5
-    },
-    {
-      "title": "Apple Watch Ultra 2",
-      "link": "https://www.apple.com/apple-watch-ultra-2/",
-      "snippet": "Designed in partnership with Huish Outdoors, the Oceanic+ app turns Ultra 2 into a fully capable dive computer running a Bühlmann decompression algorithm.",
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvZ58COtZS4zIIJDd1-Tl0GIKbFqoffFlhLa20OtLcILDR&s",
-      "source": "Apple",
-      "date": "Sep 12, 2023",
-      "position": 6
-    },
-    {
-      "title": "Apple at Work - Success Stories - BDC",
-      "link": "https://www.apple.com/business/enterprise/success-stories/financial-services/bdc/",
-      "snippet": "Apple Business Manager and AirWatch Mobile Device Management allow BDC to effortlessly deploy and manage devices and apps across the company entirely zero-touch ...",
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDQuxFNiitOIuPizPvTHwzQqyuLuypH_UNPqcZ-bGUAFy2&s",
-      "source": "Apple",
-      "date": "Nov 2, 2021",
-      "position": 7
-    },
-    {
-      "title": "Higher Education - Institutions",
-      "link": "https://www.apple.com/education/higher-education/",
-      "snippet": "More ways to shop: Find an Apple Store or other retailer near you. Or call 1-800-MY-APPLE (1-800-692-7753). United States. Copyright © 2025 Apple Inc. All ...",
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIZRPg0iWQmiRPY-Ro1XmdUQYbwGmIxUgMjjL8TqdyutHF&s",
-      "source": "Apple",
-      "date": "Jun 8, 2018",
-      "position": 8
-    },
-    {
-      "title": "Apple: The Trillion Dollar Betrayal | The Truth About Your ...",
-      "link": "https://www.youtube.com/watch?v=wmfuE-RM7Rg",
-      "snippet": "Apple is the most valuable company in the world and has a role in our lives like no other. From smartphones to smart watches, ...",
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvqw0lj-kWlq1HnowgEqzFxk5npWRpod2w1gogX-Dt4-jk&s",
-      "video_url": "https://encrypted-vtbn0.gstatic.com/video?q=tbn:ANd9GcSG7N1JPdVZhrbuDckiwnYuWIQsXg_tdcmlvA",
-      "duration": "52:40",
-      "source": "YouTube",
-      "channel": "Moconomy",
-      "date": "Dec 4, 2024",
-      "position": 9
-    },
-    {
-      "title": "Apple at Work - Success Stories - SAP",
-      "link": "https://www.apple.com/business/enterprise/success-stories/tech/sap/",
-      "snippet": "SAP has found that offering its employees this choice goes far beyond letting people pick their computer. Mac unleashes their full potential. At a glance. 105K+ ...",
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaplpBsRWWCJNlPtXsFX-jr3yw0mexpI6RtFKN6-TJAqrW&s",
-      "source": "Apple",
-      "date": "Apr 13, 2022",
-      "position": 10
-    }
-  ]
-}
-```
-
-The response contains multiple fields, described as follows:
-
-- `news`, the list of video information in the search results.
-
-As you can see, there is a `videos` field in the returned results, which mainly contains the results of the search keywords.
-
-### Customizing the Country of Search Resources
-
-This interface also supports limiting the country of the search results. We can add the `country` parameter to limit the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
-
-<p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" class="m-auto"></p>
-
-The output effect is as follows:
-```json
-{
-  "news": [
-    {
-      "title": "Apple announces iOS 26 beta public roll out set for July",
-      "link": "https://www.tv47.digital/apple-announces-ios-26-beta-public-roll-out-set-for-july-105190/",
-      "snippet": "Tech giant Apple Inc. has unveiled the latest iterations of its operating systems for iPhone, Mac, and iPad, introducing a significant...",
-      "date": "2 hours ago",
-      "source": "TV47 Digital",
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBNrktH4AWMt8KS3hErOkI1oAeUvRm4Aaq10qnINCa3TmyabOCwiEMvxVWsA&s",
-      "position": 1
-    },
-    {
-      "title": "Bragar Eagel & Squire, P.C. Is Investigating Apple, Sable and Abacus and Encourages Investors to Contact the Firm",
-      "link": "https://www.tradingview.com/news/reuters.com,2025-06-17:newsml_GNX87dzHl:0-bragar-eagel-squire-p-c-is-investigating-apple-sable-and-abacus-and-encourages-investors-to-contact-the-firm/",
-      "snippet": "NEW YORK, June 16, 2025 (GLOBE NEWSWIRE) — Bragar Eagel & Squire, P.C., a nationally recognized shareholder rights law firm,...",
-      "date": "10 hours ago",
-      "source": "TradingView",
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdcHGK9sZ4M1wtCX6U74yV2ac9ClDX2hTSX4l4Brr1DWTvXfI4dKAn8sDU9g&s",
-      "position": 2
-    },
-    {
-      "title": "Apple Inc. (AAPL) Opinions on WWDC Software and AI Announcements",
-      "link": "https://www.nasdaq.com/articles/apple-inc-aapl-opinions-wwdc-software-and-ai-announcements",
-      "snippet": "Recent discussions on X about Apple Inc. (AAPL) have centered around the company's latest software updates and AI initiatives unveiled at...",
-      "date": "17 hours ago",
-      "source": "Nasdaq",
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm5mhn6LRgzafnn34CrjlR3LS1_fHPmKNJckasyNgN4eYgBiCqGtulLQIViA&s",
-      "position": 3
-    },
-    {
-      "title": "Goldman Sachs Recommends Buying Apple, Expects Stock to Climb",
-      "link": "https://finance.yahoo.com/news/goldman-sachs-recommends-buying-apple-042754922.html",
-      "snippet": "Apple Inc. (NASDAQ:AAPL) is one of the best next generation dividend aristocrat stocks. Goldman Sachs recently highlighted a group of stocks...",
-      "date": "6 hours ago",
-      "source": "Yahoo Finance",
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6QgEG6x6t12L8YqJebmoiPNM_RMjmiVUpwam1YXZgKwBUPGe6yn76hR-n0g&s",
-      "position": 4
-    },
-    {
-      "title": "Apple threatened with more noncompliance fines after losing Dutch App Store appeal",
-      "link": "https://globalcompetitionreview.com/article/apple-threatened-more-noncompliance-fines-after-losing-dutch-app-store-appeal",
-      "snippet": "The Netherlands Authority for Consumers and Markets has successfully fended off Apple's appeal against an order to amend its App Store rules...",
-      "date": "17 hours ago",
-      "source": "Global Competition Review",
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ02b47E8UHdyFL6A4Da4Wla_nXXc427Y9aMgE7vVuJpN4CzLQp0ip_G77FwA&s",
-      "position": 5
-    },
-    {
-      "title": "Dutch court confirms Apple abused dominant position in dating apps",
-      "link": "https://www.reuters.com/sustainability/boards-policy-regulation/dutch-court-confirms-apple-abused-dominant-position-dating-apps-2025-06-16/",
-      "snippet": "A Dutch court on Monday confirmed a 2021 consumer watchdog 's ruling saying that Apple had abused its dominant position by imposing unfair...",
-      "date": "19 hours ago",
-      "source": "Reuters",
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLRbz3ypqJL6zJo1LBfMen68-D4csUJbGNNO7w8JODW6fiKliGk0yRyRGfvQ&s",
-      "position": 6
-    },
-    {
-      "title": "Can Apple Salvage the AI iPhone in China?",
-      "link": "https://www.bloomberg.com/opinion/articles/2025-06-10/can-apple-salvage-the-ai-iphone-in-china",
-      "snippet": "If you thought Apple Inc.'s artificial intelligence woes in the US were bad, just know that they could actually be worse. Look at China.",
-      "date": "6 days ago",
-      "source": "Bloomberg.com",
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzqIqxSek95GHKeeX9ekGIfzlZhz4jdEXqJPlk9Gyi5E8Yzk55iuhR5Soy_Q&s",
-      "position": 7
-    },
-    {
-      "title": "Apple requests S. Korea to allow transfer of high-precision map data overseas",
-      "link": "https://en.yna.co.kr/view/AEN20250617006800320",
-      "snippet": "SEOUL, June 17 (Yonhap) -- U.S. tech giant Apple Inc. has requested the South Korean gover...",
-      "date": "5 hours ago",
-      "source": "Yonhap News Agency",
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS20gcfgCXs4W5Hzu78JWocLIX_9jQPbN1rUUPctbiJ1UKd7R7eotC4CodJdQ&s",
-      "position": 8
-    },
-    {
-      "title": "Dutch Court Upholds Ruling Against Apple’s App Store Abuse",
-      "link": "https://www.webpronews.com/dutch-court-upholds-ruling-against-apples-app-store-abuse/",
-      "snippet": "In a significant blow to Apple Inc., a Dutch court has upheld a 2021 ruling by the Netherlands' Authority for Consumers and Markets,...",
-      "date": "13 hours ago",
-      "source": "WebProNews",
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVZUsNtxTvIJYDjEGJN53uHWvK5NAGJrf-GS4wnzlSUtAbIYizew6HrYzr_w&s",
-      "position": 9
-    },
-    {
-      "title": "Dutch court confirms Apple abused dominant position for dating apps",
-      "link": "https://seekingalpha.com/news/4458712-dutch-court-confirms-apple-abused-dominant-position-for-dating-apps",
-      "snippet": "A Dutch court confirmed the country's competition agency's ruling that Apple (AAPL) abused its dominant position by imposing unreasonable...",
-      "date": "2 hours ago",
-      "source": "Seeking Alpha",
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkf9LcqSBxw2DQZaDhfzZyJ0G2VRkkJ6dVHgBJFIGv_fgtPTDo2iAfQ_5fcQ&s",
-      "position": 10
-    }
-  ]
-}
-```
-We can also customize the language of the search results. Here we additionally add the `language` field, with the content being `zh-cn`, which refers to the Simplified Chinese language. Other languages are also supported, but the language abbreviation must be entered, such as en (English), fr (French), zh-cn (Chinese (Simplified)), etc., as shown in the image:
-
-<p><img src="https://cdn.acedata.cloud/yyrssp.png" width="500" class="m-auto"></p>
-
-The corresponding code is as follows:
-
-```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
--H 'accept: application/json' \
--H 'authorization: Bearer {token}' \
--H 'content-type: application/json' \
--d '{
-  "type": "news",
-  "query": "apple inc",
-  "language": "zh-cn"
-}'
-```
-
-The running result is as follows:
-
-```json
-{
-  "knowledge_graph": {
-    "title": "苹果",
-    "type": "公司",
-    "website": "http://www.apple.com/",
-    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgbY1KzXEpuPeTpcw0GwN6BpQTcg1m06TDUsfdG6P-zW3eWrmu78AXyg&s=0",
-    "attributes": {
-      "创始人": "史蒂夫·乔布斯、史蒂夫·沃兹尼亚克和罗纳德·韦恩",
-      "创立于": "1976 年 4 月 1 日，加利福尼亚洛思阿图斯",
-      "总部": "加利福尼亚库比蒂诺"
-    }
-  },
-  "organic": [
-    {
-      "title": "Apple",
-      "link": "https://www.apple.com/",
-      "snippet": "Discover the innovative world of Apple and shop everything iPhone, iPad, Apple Watch, Mac, and Apple TV, plus explore accessories, entertainment, ...",
-      "sitelinks": [
-        {
-          "title": "Support",
-          "link": "https://support.apple.com/"
-        },
-        {
-          "title": "Careers at Apple",
-          "link": "https://www.apple.com/careers/us/"
-        },
-        {
-          "title": "Store",
-          "link": "https://www.apple.com/store"
-        },
-        {
-          "title": "Business",
-          "link": "https://www.apple.com/business/"
-        },
-        {
-          "title": "Apple UK",
-          "link": "https://www.apple.com/uk/"
-        }
-      ],
-      "position": 1
-    },
-    {
-      "title": "Apple Inc. - Wikipedia",
-      "link": "https://en.wikipedia.org/wiki/Apple_Inc.",
-      "snippet": "Apple Inc. is an American multinational corporation and technology company headquartered in Cupertino, California, in Silicon Valley.",
-      "sitelinks": [
-        {
-          "title": "History",
-          "link": "https://en.wikipedia.org/wiki/History_of_Apple_Inc."
-        },
-        {
-          "title": "Litigation involving Apple Inc.",
-          "link": "https://en.wikipedia.org/wiki/Litigation_involving_Apple_Inc."
-        },
-        {
-          "title": "Apple Park",
-          "link": "https://en.wikipedia.org/wiki/Apple_Park"
-        },
-        {
-          "title": "Apple Watch",
-          "link": "https://en.wikipedia.org/wiki/Apple_Watch"
-        }
-      ],
-      "position": 2
-    },
-    {
-      "title": "Apple Inc. | History, Products, Headquarters, & Facts - Britannica",
-      "link": "https://www.britannica.com/money/Apple-Inc",
-      "snippet": "Apple Inc. is an American multinational technology company that revolutionized the technology sector through its innovation of computer software, ...",
-      "position": 3
-    },
-    {
-      "title": "Apple Inc - Company Profile and News - Bloomberg Markets",
-      "link": "https://www.bloomberg.com/profile/company/AAPL:US",
-      "snippet": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables and accessories, and sells a variety of related ...",
-      "position": 4
-    },
-    {
-      "title": "Apple Inc. (AAPL) Stock Price, News, Quote & History - Yahoo Finance",
-      "link": "https://finance.yahoo.com/quote/AAPL/",
-      "snippet": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide.",
-      "date": "2024年8月27日",
-      "position": 5
-    },
-    {
-      "title": "AAPL: Apple Inc Stock Price Quote - NASDAQ GS - Bloomberg",
-      "link": "https://www.bloomberg.com/quote/AAPL:US",
-      "snippet": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables and accessories, and sells a variety of related accessories.",
-      "position": 6
-    },
-    {
-      "title": "Apple Inc. (AAPL) Company Profile & Facts - Yahoo Finance",
-      "link": "https://finance.yahoo.com/quote/AAPL/profile/",
-      "snippet": "See the company profile for Apple Inc. (AAPL) including business summary, industry/sector information, number of employees, business summary, ...",
-      "position": 7
-    }
-  ],
-  "people_also_ask": [
-    {
-      "question": "What is Apple Inc stand for?",
-      "snippet": "It was incorporated as Apple Computer, Inc. in January 1977, and sales of its computers, including the Apple II , saw significant momentum and revenue growth for the company. \"Inc.\" is the abbreviation for incorporated. A corporation is a separate legal entity from the person or people forming it.",
-      "title": "What does the 'Inc.' in Apple Inc. mean? - Quora",
-      "link": "https://www.quora.com/What-does-the-Inc-in-Apple-Inc-mean"
-    },
-    {
-      "question": "Who owns Apple Inc.?",
-      "snippet": "Apple (AAPL) Ownership Overview The ownership structure of Apple (AAPL) stock is a mix of institutional, retail and individual investors. Approximately 48.76% of the company's stock is owned by Institutional Investors, 0.11% is owned by Insiders and 51.13% is owned by Public Companies and Individual Investors.",
-      "title": "Who owns Apple? AAPL Stock Ownership - TipRanks.com",
-      "link": "https://www.tipranks.com/stocks/aapl/ownership"
-    },
-    {
-      "question": "Why did Apple change to Apple Inc?",
-      "snippet": "During his keynote speech at the Macworld Expo on January 9, 2007, Jobs announced the renaming of Apple Computer, Inc. to Apple Inc., because the company had broadened its focus from computers to consumer electronics. This event also saw the announcement of the iPhone and the Apple TV.",
-      "title": "Apple Inc. - Wikipedia",
-      "link": "https://en.wikipedia.org/wiki/Apple_Inc."
-    },
-    {
-      "question": "Why Apple Inc is called Apple?",
-      "snippet": "With the name Apple, the new computer company would appear ahead of Atari, where Jobs used to work. Jobs confirmed this theory in an 1980 presentation, stating that the name was partly chosen because he liked apples and partly because Apple was ahead of Atari in the phone book.",
-      "title": "Why Is Apple Called Apple? - Apple Scoop",
-      "link": "https://applescoop.org/story/why-is-apple-called-apple"
-    }
-  ],
-  "related_searches": [
-    {
-      "query": "apple inc是什么"
-    },
-    {
-      "query": "apple澳门"
-    },
-    {
-      "query": "Apple ID"
-    },
-    {
-      "query": "apple美国"
-    },
-    {
-      "query": "apple官网"
-    },
-    {
-      "query": "apple美国官网"
-    },
-    {
-      "query": "Apple company introduction"
-    },
-    {
-      "query": "apple id官网"
-    }
-  ],
-  "credits": 1
-}
-```
-
-As can be seen, the results displayed here are all in Simplified Chinese, and the content of the results is similar to the above text.
-
-### Customizing the Time Range of Search Results
-This article also allows customizing the time range of search results, which includes five options: `qdr:h` (past hour), `qdr:d` (past day), `qdr:w` (past week), `qdr:m` (past month), and the default is unlimited. We can pass the corresponding time range through `range`, for example, setting it to `qdr:d` indicates searching for results from the past day, so the input is as follows:
-
-<p><img src="https://cdn.acedata.cloud/qccfib.png" width="500" class="m-auto"></p>
-
-The corresponding code is as follows:
-
-```shell
-curl -X POST 'https://api.acedata.cloud/serp/google' \
--H 'accept: application/json' \
--H 'authorization: Bearer {token}' \
--H 'content-type: application/json' \
--d '{
-  "range": "qdr:d",
-  "query": "apple inc"
-}'
-```
-
-The result is as follows:
-
-```json
-{
-  "answer_box": {
-    "title": "Tim Cook (Aug 24, 2011–)Apple / CEO",
-    "answer": "Tim Cook (Aug 24, 2011–)"
-  },
-  "knowledge_graph": {
-    "title": "Apple",
-    "type": "Technology company",
-    "website": "http://www.apple.com/",
-    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5ITHsQzdzkkFWKinRe1Y4FUbC_Vy3R_M&s=0",
-    "description": "Apple Inc. is an American multinational corporation and technology company headquartered in Cupertino, California, in Silicon Valley. It is best known for its consumer electronics, software, and services.",
-    "description_source": "Wikipedia",
-    "description_link": "https://en.wikipedia.org/wiki/Apple_Inc.",
-    "attributes": {
-      "Customer service": "1 (800) 275-2273",
-      "Founders": "Steve Jobs, Steve Wozniak, and Ronald Wayne",
-      "Founded": "April 1, 1976, Los Altos, CA",
-      "Headquarters": "Cupertino, CA",
-      "CEO": "Tim Cook (Aug 24, 2011–)"
-    }
-  },
-  "organic": [
-    {
-      "title": "Apple",
-      "link": "https://www.apple.com/",
-      "snippet": "Discover the innovative world of Apple and shop everything iPhone, iPad, Apple Watch, Mac, and Apple TV, plus explore accessories, entertainment, ...",
-      "sitelinks": [
-        {
-          "title": "Support",
-          "link": "https://support.apple.com/"
-        },
-        {
-          "title": "Career Opportunities",
-          "link": "https://www.apple.com/careers/us/"
-        },
-        {
-          "title": "Business",
-          "link": "https://www.apple.com/business/"
-        },
-        {
-          "title": "Apple Leadership",
-          "link": "https://www.apple.com/leadership/"
-        },
-        {
-          "title": "Store",
-          "link": "https://www.apple.com/store"
-        }
-      ],
-      "position": 1
-    },
-    {
-      "title": "Apple Inc. - Wikipedia",
-      "link": "https://en.wikipedia.org/wiki/Apple_Inc.",
-      "snippet": "Apple Inc. is an American multinational corporation and technology company headquartered in Cupertino, California, in Silicon Valley.",
-      "position": 2
-    },
-    {
-      "title": "Apple Inc. | History, Products, Headquarters, & Facts - Britannica",
-      "link": "https://www.britannica.com/money/Apple-Inc",
-      "snippet": "American manufacturer of personal computers, smartphones, and tablet computers. Apple was the first successful personal computer company and ...",
-      "date": "7 days ago",
-      "position": 3
-    },
-    {
-      "title": "Apple Inc. (AAPL) Company Profile & Facts - Yahoo Finance",
-      "link": "https://finance.yahoo.com/quote/AAPL/profile/",
-      "snippet": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. The company offers iPhone, a line ...",
-      "position": 4
-    },
-    {
-      "title": "AAPL: Apple Inc Stock Price Quote - NASDAQ GS - Bloomberg",
-      "link": "https://www.bloomberg.com/quote/AAPL:US",
-      "snippet": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables and accessories, and sells a variety of related accessories.",
-      "position": 5
-    },
-    {
-      "title": "Apple Inc. (AAPL) Stock Price Today - WSJ",
-      "link": "https://www.wsj.com/market-data/quotes/AAPL?gaa_at=eafs&gaa_n=ASWzDAjHf1Jvm_DfBkgGitLxGwlDC2VFfkyeU3ora5VpP1k1gJJfptWjtU4o&gaa_ts=6851a5a8&gaa_sig=FmQcgCrdYtgMPhMwfFTpCtEva8_OZ5j1fx1cEBn0_THBq1EUa8A0Tmo3piNM3OQ488O2rScdH4NuSLly_DIdpQ%3D%3D",
-      "snippet": "Apple Inc. engages in the design, manufacture, and sale of smartphones, personal computers, tablets, wearables and accessories, and other varieties of related ...",
-      "position": 6
-    }
-  ],
-  "people_also_ask": [
-    {
-      "question": "What is the Apple Inc?",
-      "snippet": "Apple Inc., originally Apple Computer, Inc., is a multinational corporation that creates and markets consumer electronics and attendant computer software, and is a digital distributor of media content. Apple's core product lines are the iPhone smartphone, iPad tablet computer, and the Mac personal computer.",
-      "title": "History of Apple Inc. - Wikipedia",
-      "link": "https://en.wikipedia.org/wiki/History_of_Apple_Inc."
-    },
-    {
-      "question": "Who owns Apple Inc?",
-      "snippet": "Apple (AAPL) Ownership Overview Approximately 50.57% of the company's stock is owned by Institutional Investors, 0.06% is owned by Insiders, and 49.38% is owned by Public Companies and Individual Investors. The ownership structure of Apple (AAPL) stock is a mix of institutional, retail, and individual investors.",
-      "title": "Who owns Apple? AAPL Stock Ownership - TipRanks.com",
-      "link": "https://www.tipranks.com/stocks/aapl/ownership"
-    },
-    {
-      "question": "What is Apple Inc. best known for?",
-      "snippet": "It is best known for its consumer electronics, software, and services. Founded in 1976 as Apple Computer Company by Steve Jobs, Steve Wozniak and Ronald Wayne, the company was incorporated by Jobs and Wozniak as Apple Computer, Inc. the following year.",
-      "title": "Apple Inc. - Wikipedia",
-      "link": "https://en.wikipedia.org/wiki/Apple_Inc."
-    },
-    {
-      "question": "Who is the current owner of Apple?",
-      "snippet": "Tim Cook (Aug 24, 2011–)\nApple / CEO"
-    }
-  ],
-  "related_searches": [
-    {
-      "query": "Apple iPhone 13"
-    },
-    {
-      "query": "what is apple inc"
-    },
-    {
-      "query": "Apple Inc full form"
-    },
-    {
-      "query": "Apple Inc address"
-    },
-    {
-      "query": "Apple Inc investor relations"
-    },
-    {
-      "query": "Apple Inc industry"
-    },
-    {
-      "query": "Apple Inc Annual Report"
-    },
-    {
-      "query": "Apple Inc careers"
-    }
-  ]
-}
-```
-
-As we can see, we successfully obtained the search results from the past day, and the content of the results is similar to the above.
-
-
-## More
-
-For more info, please check below APIs and integration documents.
+Explore the supported endpoints and integration guides for Search Engine.
 
 | API | Path | Integration Guidance |
 | ---- | ---- | ------------ |
-| [Google SERP API](http://platform.acedata.cloud/documents/44c86226-8eaa-49bf-85f3-1fae8d2e23f1) | `/serp/google` | [Google SERP API Integration Guide](http://platform.acedata.cloud/documents/cc2ce913-df8f-4d22-a051-93fa33b2e51b) |
+| [Google SERP API](https://platform.acedata.cloud/documents/44c86226-8eaa-49bf-85f3-1fae8d2e23f1) | `/serp/google` | [Google SERP API Integration Guide](https://platform.acedata.cloud/documents/cc2ce913-df8f-4d22-a051-93fa33b2e51b) |
 
-Base URL: [https://api.acedata.cloud](https://api.acedata.cloud)
+## Related Resources
+
+- [Ace Data Cloud Developer Platform](https://platform.acedata.cloud)
+- [Ace Data Cloud Docs](https://docs.acedata.cloud)
+- [Status Page](https://status.acedata.cloud)
+- [Ace Data Cloud GitHub Organization](https://github.com/AceDataCloud)
 
 ## Support
 
-If you meet any issue, check our from [support info](https://platform.acedata.cloud/support).
+If you meet any issue, please check [support info](https://platform.acedata.cloud/support) or browse the latest documentation on [docs.acedata.cloud](https://docs.acedata.cloud).
