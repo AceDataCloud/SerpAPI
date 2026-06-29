@@ -785,11 +785,6 @@ for result in data["results"]:
 <div class="sp-rel-info"><h3>Gemini</h3><p>Google AI</p></div>
 <span class="sp-rel-arrow">→</span>
 </a>
-<a class="sp-rel-card" href="/services/midjourney">
-<span class="sp-rel-icon">🎨</span>
-<div class="sp-rel-info"><h3>Midjourney</h3><p>AI Painting</p></div>
-<span class="sp-rel-arrow">→</span>
-</a>
 <a class="sp-rel-card" href="/services/suno">
 <span class="sp-rel-icon">🎵</span>
 <div class="sp-rel-info"><h3>Suno</h3><p>AI Music</p></div>
