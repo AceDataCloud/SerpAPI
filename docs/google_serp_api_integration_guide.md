@@ -8,15 +8,13 @@ This document will introduce the integration instructions for the Google SERP AP
 
 ## Application Process
 
-To use Google SERP API, first open the [Ace Data Cloud Console](https://platform.acedata.cloud/console/applications) and copy your API Token.
+To use the Google SERP API, you need to first apply for the corresponding service on the [Google SERP API](https://platform.acedata.cloud/documents/44c86226-8eaa-49bf-85f3-1fae8d2e23f1) page. After entering the page, click the "Acquire" button, as shown in the image:
 
-![](https://cdn.acedata.cloud/5hmkdg.jpg)
+![](https://cdn.acedata.cloud/q6ytrc.png)
 
-If you are not logged in, you will be redirected to sign in and brought back to this page automatically.
+If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-**A single API Token works across every service on the platform — no need to subscribe per service.** New accounts receive free starter credit; when it runs low you can top up your shared balance in the [console](https://platform.acedata.cloud/console/coin).
-
-> 📘 Full documentation: [Google SERP API →](https://platform.acedata.cloud/documents/serp-google)
+During the first application, there will be a free quota provided, allowing you to use the API for free.
 
 ## Basic Usage
 

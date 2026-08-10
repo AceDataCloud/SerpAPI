@@ -509,8 +509,8 @@ html.dark .serp-page code { background: #1e3a5f !important; color: #93c5fd !impo
 <h1><span class="sp-brand">SERP</span> <span class="sp-sub">Search Engine API</span></h1>
 <p class="hero-subtitle">Get Google search results through a simple RESTful API. Supports web search, image search, news search—charged by the number of requests, starting at $0.00095.</p>
 <div class="sp-actions">
-<a class="sp-btn-primary" href="/documents/serp-google-integration">📄 View Documentation</a>
-<a class="sp-btn-secondary" href="/documents/serp-google">🔍 API Reference</a>
+<a class="sp-btn-primary" href="/apis/serp-google">📄 View Documentation</a>
+<a class="sp-btn-secondary" href="/apis/serp-google">🔍 API Reference</a>
 </div>
 <div class="sp-highlights">
 <span class="h-item">🌐 Google Search</span>
@@ -574,21 +574,26 @@ html.dark .serp-page code { background: #1e3a5f !important; color: #93c5fd !impo
 <div class="sp-code-wrap">
 <div class="sp-code-head">Python</div>
 <pre class="sp-code">import requests
+ 
+
 response = requests.get(
-    "https://api.acedata.cloud/serp/google",
-    headers={
-        "Authorization": "Bearer YOUR_API_KEY"
-    },
-    params={
-        "q": "artificial intelligence",
-        "number": 10,
-        "gl": "us",
-        "hl": "en"
-    }
+"https://api.acedata.cloud/serp/google",
+headers={
+"Authorization": "Bearer YOUR_API_KEY"
+},
+params={
+"q": "artificial intelligence",
+"number": 10,
+"gl": "us",
+"hl": "en"
+}
 )
+```python
 data = response.json()
 for result in data["results"]:
-    print(result["title"], result["link"])</pre>
+    print(result["title"], result["link"])
+```
+</pre>
 </div>
 </div>
 </div>
@@ -780,11 +785,6 @@ for result in data["results"]:
 <div class="sp-rel-info"><h3>Gemini</h3><p>Google AI</p></div>
 <span class="sp-rel-arrow">→</span>
 </a>
-<a class="sp-rel-card" href="/services/midjourney">
-<span class="sp-rel-icon">🎨</span>
-<div class="sp-rel-info"><h3>Midjourney</h3><p>AI Painting</p></div>
-<span class="sp-rel-arrow">→</span>
-</a>
 <a class="sp-rel-card" href="/services/suno">
 <span class="sp-rel-icon">🎵</span>
 <div class="sp-rel-info"><h3>Suno</h3><p>AI Music</p></div>
@@ -798,20 +798,18 @@ for result in data["results"]:
 <h2>Start Using SERP API Now</h2>
 <p>Efficiently obtain Google search results to empower your applications.</p>
 <div class="sp-actions">
-<a class="btn-cta-light" href="/documents/serp-google-integration">Get Started →</a>
+<a class="btn-cta-light" href="/apis/serp-google">Get Started →</a>
 <a class="btn-cta-ghost" href="/support">Contact Support</a>
 </div>
 </div>
 </section>
 </div>
 
-
 ## Quick Start
 
 - Base URL: [https://api.acedata.cloud](https://api.acedata.cloud)
 - Service page: [Search Engine on Ace Data Cloud](https://platform.acedata.cloud/service/serp)
-- Docs: [Developer documentation](https://platform.acedata.cloud/documents/serp)
-- Demo: [Try the demo](https://studio.acedata.cloud/serp)
+- Docs: [Developer documentation](https://docs.acedata.cloud)
 
 ```bash
 curl --request POST "https://api.acedata.cloud/serp/google" \
