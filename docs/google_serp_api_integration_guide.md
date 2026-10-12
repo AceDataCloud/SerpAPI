@@ -1,51 +1,49 @@
-# Google SERP API Integration Guide
+# Google SERP API Integration Instructions
 
-Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, advertisements, featured snippets, knowledge graphs, and various types of content such as images and videos, aiming to provide users with the most relevant information.
+Google SERP (Search Engine Results Page) is the results page that users see after entering a query in the Google search engine. It displays organic search results, ads, featured snippets, knowledge graphs, as well as various content such as images and videos, aiming to provide users with the most relevant information.
 
-This article will introduce the Google SERP API in detail. It can provide results for queries entered in the Google search engine, and the result content also includes many types, such as featured snippets, knowledge graphs, images, and various other results.
+This article will provide a detailed introduction to the Google SERP API, which can provide results for queries entered in the Google search engine. The results include many types, such as featured snippets, knowledge graphs, and images.
 
-This document will introduce the integration guide for the Google SERP API.
+This document will introduce the integration instructions for the Google SERP API.
 
 ## Application Process
 
-To use the Google SERP API, first go to the [Ace Data Cloud Console](https://platform.acedata.cloud/console/applications) to obtain your API Token and keep it for later use.
+To use the Google SERP API, you need to first apply for the corresponding service on the [Google SERP API](https://platform.acedata.cloud/documents/44c86226-8eaa-49bf-85f3-1fae8d2e23f1) page. After entering the page, click the "Acquire" button, as shown in the image:
 
-![](https://cdn.acedata.cloud/dvc3cg.jpg)
+![](https://cdn.acedata.cloud/q6ytrc.png)
 
-If you have not logged in or registered yet, you will be automatically redirected to the login page to register and log in. After completion, you will automatically return to the current page.
+If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-**One API Token can call all services on the platform, with no need to apply separately for each service.** The first application will receive free credits for a free trial; when credits are insufficient, you can recharge the general balance in the [Console](https://platform.acedata.cloud/console/coin).
-
-> 📘 Complete documentation: [Google SERP API →](https://platform.acedata.cloud/documents/serp-google)
+During the first application, there will be a free quota provided, allowing you to use the API for free.
 
 ## Basic Usage
 
-Enter keywords and the search resource type to obtain results: use `query` to pass keywords, and use `type` to select search types such as web pages, images, news, and more; this API does not require passing `model`.
+First, understand the basic usage method, which is to input the type of search resource and keywords to obtain search results. You only need to simply pass the `query` field and specify the corresponding model.
 
-For example, to search for information about “apple inc,” we can then fill in the corresponding content in the interface, as shown in the image:
+For example, to find information about "apple inc," we can fill in the corresponding content on the interface, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/lnqiye.png" width="500" class="m-auto"></p>
 
-You can see that we have set the Request Headers here, including:
+Here, we have set the Request Headers, including:
 
-- `accept`: The format of the response result you want to receive. Here it is set to `application/json`, which is JSON format.
-- `authorization`: The key for calling the API. After applying, you can directly select it from the dropdown.
+- `accept`: the format of the response result you want to receive, filled in as `application/json`, which is in JSON format.
+- `authorization`: the key to call the API, which can be selected directly after application.
 
-In addition, the Request Body has been set, including:
+Additionally, the Request Body is set, including:
 
-- `type`: The type of search resource. Currently, only six types are supported, and the default is `search`.
-- `query`: The search keyword.
-- `country`: The country where the search results are located. The default is the United States (US).
-- `language`: The language of the search results. The default is English (en).
-- `range`: The time range of the search results. The default has no restriction.
-- `number`: The page size for pagination of the search results. The default is 10.
-- `page`: The page number for pagination of the search results. The default is 1.
+- `type`: the type of search resource, currently supporting only six types, with the default being `search`.
+- `query`: the search keyword.
+- `country`: the country where the search results are located, with the default being the United States (US).
+- `language`: the language of the search results, with the default being English (en).
+- `range`: the time range for the search results, with the default being unlimited.
+- `number`: the page size of the search results, with the default being 10.
+- `page`: the page number of the search results, with the default being 1.
 
-After making the selection, you can find that the corresponding code is also generated on the right side, as shown in the image:
+After selection, you can find that the corresponding code is also generated on the right side, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/1j81zr.png" width="500" class="m-auto"></p>
 
-Click the “Try” button to test it. As shown in the image above, we obtain the following result here:
+Click the "Try" button to test, as shown in the image above, and we have obtained the following results:
 ```json
 {
   "knowledge_graph": {
@@ -180,16 +178,16 @@ Click the “Try” button to test it. As shown in the image above, we obtain th
 }
 ```
 
-The returned result contains multiple fields in total, which are described as follows:
+The returned result contains multiple fields, described as follows:
 
-- `knowledge_graph`, the knowledge graph of the search results.
-- `organic`, the detailed information of the search results.
+- `knowledge_graph`, the knowledge graph of the search result.
+- `organic`, detailed information of the search result.
 - `people_also_ask`, questions related to the search keyword.
 - `related_searches`, related searches for the search keyword.
 
-As you can see, there is an `organic` field in the returned results here, which mainly contains the results for the search keyword.
+It can be seen that there is an `organic` field in the returned result, which mainly contains the results of the search keyword.
 
-Additionally, if you want to generate the corresponding integration code, you can directly copy and generate it. For example, the CURL code is as follows:
+Additionally, if you want to generate the corresponding interface code, you can directly copy the generated code, for example, the CURL code is as follows:
 
 ```shell
 curl -X POST 'https://api.acedata.cloud/serp/google' \
@@ -201,7 +199,7 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 }'
 ```
 
-The Python integration code is as follows:
+The Python interface code is as follows:
 
 ```python
 import requests
@@ -222,13 +220,13 @@ response = requests.post(url, json=payload, headers=headers)
 print(response.text)
 ```
 
-## Custom Search Types
+## Custom Search Type
 
-If you customize the type of search resources, we can modify the `type` parameter. It includes general resources `search`, image resources `images`, news resources `news`, map resources `maps`, local resources `places`, and video resources `videos`. This article will use video resources `videos` as an example.
+If you customize the type of search resource, we can modify the parameter `type`, which includes ordinary resources `search`, image resources `images`, news resources `news`, map resources `maps`, regional resources `places`, and video resources `videos`. This article will demonstrate with the video resource `videos`.
 
-Next, let us demonstrate the specific operation.
+Now let's demonstrate the specific operation.
 
-First, set the `type` parameter to `videos`, and pass the `query` parameter normally, as shown in the figure:
+First, set the `type` parameter to `videos`, and normally pass the `query` parameter, as shown:
 <p><img src="https://cdn.acedata.cloud/czlt12.png" width="500" class="m-auto"></p>
 
 The corresponding code is as follows:
@@ -244,7 +242,7 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 }'
 ```
 
-The following response can be obtained:
+You can get the following response:
 
 ```json
 {
@@ -346,19 +344,19 @@ The following response can be obtained:
 }
 ```
 
-The returned result contains multiple fields, described as follows:
+The response contains multiple fields, described as follows:
 
-- `news`, a list of video information in the search results.
+- `news`, the list of video information in the search results.
 
-As you can see, there is a `videos` field in the returned result, which mainly contains the results for the search keyword.
+As you can see, there is a `videos` field in the returned results, which mainly contains the results of the search keywords.
 
-## Customize the Country Where the Search Resource Is Located
+## Customizing the Country of Search Resources
 
-This API also supports limiting the country where the search results are located. We can add the `country` parameter to limit the country. The input parameter is the abbreviation of the country, such as cn (China) and us (United States). This article will use China as the following example. The specific information is as follows:
+This interface also supports limiting the country of the search results. We can add the `country` parameter to limit the country, with the input parameter being the abbreviation of the country, such as cn (China), us (United States). This article will take China as an example, and the specific information is as follows:
 
 <p><img src="https://cdn.acedata.cloud/gztpwi.png" width="500" class="m-auto"></p>
 
-The output is as follows:
+The output effect is as follows:
 ```json
 {
   "news": [
@@ -455,11 +453,7 @@ The output is as follows:
   ]
 }
 ```
-
-It can be seen that the results are search results in the China country, and the specific content is similar to the above.
-
-## Customize Search Result Language
-We can also customize the language of the search results. Here, we additionally add the `language` field, with the value `zh-cn`, which refers to the language of Simplified Chinese. Other languages are also supported, but you must enter the abbreviation of the language, such as en (English), fr (French), zh-cn (Chinese (Simplified)), and so on, as shown in the figure:
+We can also customize the language of the search results. Here we additionally add the `language` field, with the content being `zh-cn`, which refers to the Simplified Chinese language. Other languages are also supported, but the language abbreviation must be entered, such as en (English), fr (French), zh-cn (Chinese (Simplified)), etc., as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/yyrssp.png" width="500" class="m-auto"></p>
 
@@ -477,7 +471,7 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 }'
 ```
 
-The execution result is as follows:
+The running result is as follows:
 
 ```json
 {
@@ -633,10 +627,10 @@ The execution result is as follows:
 }
 ```
 
-You can see that the results displayed here are all in Simplified Chinese, and the content of the results is similar to the above.
+As can be seen, the results displayed here are all in Simplified Chinese, and the content of the results is similar to the above text.
 
-## Customize the Search Result Time Range
-This article also allows you to customize the time range of search results, including five options: `qdr:h` (past hour), `qdr:d` (past day), `qdr:w` (past week), `qdr:m` (past month), and unlimited by default. We can pass the corresponding time range through `range`. For example, here it is set to `qdr:d`, which means searching for results from the past day, so the input is as follows:
+## Customizing the Time Range of Search Results
+This article also allows customizing the time range of search results, which includes five options: `qdr:h` (past hour), `qdr:d` (past day), `qdr:w` (past week), `qdr:m` (past month), and the default is unlimited. We can pass the corresponding time range through `range`, for example, setting it to `qdr:d` indicates searching for results from the past day, so the input is as follows:
 
 <p><img src="https://cdn.acedata.cloud/qccfib.png" width="500" class="m-auto"></p>
 
@@ -767,7 +761,7 @@ The result is as follows:
       "query": "Apple iPhone 13"
     },
     {
-      "query": "apple inc คืออะไร"
+      "query": "what is apple inc"
     },
     {
       "query": "Apple Inc full form"
@@ -791,15 +785,15 @@ The result is as follows:
 }
 ```
 
-As you can see, we successfully obtained the search results from the past day, and the result content is similar to the above.
+As we can see, we successfully obtained the search results from the past day, and the content of the results is similar to the above.
 
-## Customize Search Result Pagination
+## Customizing Pagination of Search Results
 
-This API also supports customized paginated display of search results. `number` and `page` represent the page size and page number for pagination. This article will set 20 search results per page for paginated display. The specific information is shown in the figure:
+This API also supports customizing the pagination display of search results, where `number` and `page` represent the page size and page number for pagination. This article will set the format to display 20 search results per page, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/dqla1e.png" width="500" class="m-auto"></p>
 
-> Note: When the number of results per page exceeds 10, the deducted credits will be doubled.
+> Note: When the number of results per page exceeds 10, the deducted points will double.
 
 The code is as follows:
 ```shell
@@ -814,9 +808,10 @@ curl -X POST 'https://api.acedata.cloud/serp/google' \
 }'
 ```
 
-The execution result is as follows:
+The result is as follows:
 
-```json {
+```json
+{
   "knowledge_graph": {
     "title": "Apple",
     "type": "Technology company",
@@ -939,6 +934,7 @@ The execution result is as follows:
       "snippet": "It is best known for its consumer electronics, software, and services. Founded in 1976 as Apple Computer Company by Steve Jobs, Steve Wozniak and Ronald Wayne, the company was incorporated by Jobs and Wozniak as Apple Computer, Inc. the following year.",
       "link": "https://en.wikipedia.org/wiki/Apple_Inc.#:~:text=It%20is%20best%20known%20for,%2C%20Inc.%20the%20following%20year."
     },
+```
 {
       "question": "What is the meaning of Inc in Apple Inc?",
       "title": "Inc. | English meaning - Cambridge Dictionary",
@@ -947,7 +943,7 @@ The execution result is as follows:
     } ],
   "related_searches": [
     {
-      "query": "apple inc คืออะไร"
+      "query": "What is Apple Inc"
     }, {
       "query": "Apple Inc full form"
     }, {
@@ -969,6 +965,5 @@ The execution result is as follows:
   ]
 }
 ```
- 
 
-It can be seen that here it displays the search results in pages, with 20 results displayed on each page, and the content of the results is similar to the above.
+As can be seen, it displays the search results in a paginated format, showing 20 results per page, and the content of the results is similar to the above text.
